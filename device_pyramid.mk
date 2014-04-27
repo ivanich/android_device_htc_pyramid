@@ -44,9 +44,8 @@ PRODUCT_PACKAGES += \
     offmode_charging \
     htcbatt
 
-# Keylayouts and Keychars
+# Keylayouts
 PRODUCT_COPY_FILES += \
-    device/htc/pyramid/keychars/pyramid-keypad.kcm:system/usr/keychars/pyramid-keypad.kcm \
     device/htc/pyramid/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
     device/htc/pyramid/keylayout/cy8c-touchscreen.kl:system/usr/keylayout/cy8c-touchscreen.kl \
     device/htc/pyramid/keylayout/h2w_headset.kl:system/usr/keylayout/h2w_headset.kl \
