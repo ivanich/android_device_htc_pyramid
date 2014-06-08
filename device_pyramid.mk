@@ -34,15 +34,15 @@ PRODUCT_PACKAGES += \
 # Wifi
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
 
-## recovery and custom charging
-PRODUCT_COPY_FILES += \
-    device/htc/pyramid/recovery/sbin/choice_fn:recovery/root/sbin/choice_fn \
-    device/htc/pyramid/recovery/sbin/power_test:recovery/root/sbin/power_test \
-    device/htc/pyramid/recovery/sbin/offmode_charging:recovery/root/sbin/offmode_charging \
-    device/htc/pyramid/recovery/sbin/detect_key:recovery/root/sbin/detect_key \
-    device/htc/pyramid/recovery/sbin/htcbatt:recovery/root/sbin/htcbatt \
-    device/htc/pyramid/recovery/etc/twrp.fstab:recovery/root/etc/twrp.fstab
-
+# Recovery
+PRODUCT_PACKAGES += \
+    lpm.rc \
+    init.recovery.pyramid.rc \
+    twrp.fstab \
+    choice_fn \
+    power_test \
+    offmode_charging \
+    htcbatt
 
 # Keylayouts and Keychars
 PRODUCT_COPY_FILES += \
