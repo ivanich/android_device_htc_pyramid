@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Device Settings</string>
+    <string name="category_general_title">General</string>
+    <string name="color_temp_title">Color calibration</string>
+    <string name="color_temp_summary">Use color calibration from M7 (more cooler colors)</string>
+</resources>

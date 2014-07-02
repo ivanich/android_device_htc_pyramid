@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.cyanogenmod.settings.device"
+    android:title="@string/app_name">
+
+    <!-- General features -->
+    <PreferenceCategory android:key="category_general"
+        android:title="@string/category_general_title">
+        <CheckBoxPreference
+            android:key="color_temp"
+            android:title="@string/color_temp_title"
+            android:summary="@string/color_temp_summary"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
