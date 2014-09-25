@@ -57,15 +57,17 @@
 
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
-        <item>11</item>
-        <item>41</item>
-        <item>91</item>
-        <item>161</item>
-        <item>226</item>
-        <item>321</item>
-        <item>641</item>
-        <item>1281</item>
-        <item>2601</item>
+        <item>10</item>
+        <item>50</item>
+        <item>100</item>
+        <item>200</item>
+        <item>400</item>
+        <item>500</item>
+        <item>800</item>
+        <item>1000</item>
+        <item>1600</item>
+        <item>3000</item>
+        <item>10000</item>
     </integer-array>
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
@@ -73,16 +75,18 @@
          than the size of the config_autoBrightnessLevels array.
     -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>56</item>
-        <item>56</item>
-        <item>56</item>
-        <item>90</item>
-        <item>117</item>
-        <item>142</item>
-        <item>170</item>
-        <item>198</item>
-        <item>227</item>
-        <item>255</item>
+        <item>12</item>  <!-- 0-10 -->
+        <item>28</item>  <!-- 10-50 -->
+        <item>37</item>  <!-- 50-100 -->
+        <item>53</item>  <!-- 100-200 -->
+        <item>75</item>  <!-- 200-400 -->
+        <item>84</item>  <!-- 400-500 -->
+        <item>100</item> <!-- 500-800 -->
+        <item>116</item> <!-- 800-1000 -->
+        <item>152</item> <!-- 1000-1600 -->
+        <item>186</item> <!-- 1600-3000 -->
+        <item>240</item> <!-- 3000-10000 -->
+        <item>255</item> <!-- 10000+ -->
     </integer-array>
 
     <!-- Array of output values for button backlight corresponding to the LUX values
@@ -90,10 +94,12 @@
          than the size of the config_autoBrightnessLevels array.
     -->
     <integer-array name="config_autoBrightnessButtonBacklightValues">
-        <item>255</item>
-        <item>255</item>
-        <item>255</item>
-        <item>255</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
         <item>0</item>
         <item>0</item>
         <item>0</item>
@@ -107,10 +113,12 @@
          than the size of the config_autoBrightnessLevels array.
     -->
     <integer-array name="config_autoBrightnessKeyboardBacklightValues">
-        <item>255</item>
-        <item>255</item>
-        <item>255</item>
-        <item>255</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
         <item>0</item>
         <item>0</item>
         <item>0</item>
@@ -120,7 +128,7 @@
     </integer-array>
 
     <!-- Minimum screen brightness allowed by the power manager. -->
-    <integer name="config_screenBrightnessDim">10</integer>
+    <integer name="config_screenBrightnessDim">1</integer>
 
     <!-- XXXXX NOTE THE FOLLOWING RESOURCES USE THE WRONG NAMING CONVENTION.
          Please don't copy them, copy anything else. -->
@@ -182,7 +190,7 @@
     </integer-array>
 
     <!-- Boolean indicating whether the wifi chipset has dual frequency band support -->
-    <bool translatable="false" name="config_wifi_dual_band_support">true</bool>
+    <bool translatable="false" name="config_wifi_dual_band_support">false</bool>
 
     <!-- Boolean indicating whether the wifi chipset has background scan support -->
     <bool translatable="false" name="config_wifi_background_scan_support">true</bool>
