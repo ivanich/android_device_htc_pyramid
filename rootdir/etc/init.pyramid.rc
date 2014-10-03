@@ -3,12 +3,16 @@ import init.pyramid.usb.rc
 on init
     mkdir /devlog 0700 root root
     mkdir /mnt/media_rw/sdcard0 0700 media_rw media_rw
+    mkdir /mnt/media_rw/usbdisk 0700 media_rw media_rw
 
     mkdir /storage/sdcard0 0700 root root
+    mkdir /storage/usbdisk 0700 root root
 
     # for backwards compatibility
     symlink /storage/sdcard0 /sdcard
     symlink /storage/sdcard0 /mnt/sdcard
+    symlink /storage/usbdisk /usbdisk
+    symlink /storage/usbdisk /mnt/usbdisk
 		 
     setprop ro.usb.idproduct.ums 0c86
     setprop ro.usb.idproduct.rndis 0c86
@@ -16,7 +20,8 @@ on init
     setprop ro.usb.idproduct.mtp_adb 0f87
     setprop ro.usb.idproduct.ptp 0f87
 
-    export EXTERNAL_STORAGE /storage/sdcard0    
+    export EXTERNAL_STORAGE /storage/sdcard0
+    export SECONDARY_STORAGE /storage/usbdisk
 
 on fs
 
@@ -290,6 +295,10 @@ service iprenew_wlan0 /system/bin/dhcpcd -n
 service fuse_sdcard0 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard0 /storage/sdcard0
         class late_start
         disabled
+
+service fuse_usbdisk /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/usbdisk /storage/usbdisk
+	class late_start
+	disabled
 
 on property:init.svc.bootanim=stopped
     start qcom-post-boot
