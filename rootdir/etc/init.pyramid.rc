@@ -209,6 +209,10 @@ on boot
     write /sys/module/cpu_boost/parameters/input_boost_freq 1134000
     write /sys/module/cpu_boost/parameters/input_boost_ms 40
 
+    # Vibration intensity
+    chown root system /sys/class/timed_output/vibrator/voltage_level
+    chmod 0664 /sys/class/timed_output/vibrator/voltage_level
+
 # Services start here
 service qcamerasvr /system/bin/mm-qcamera-daemon
     class main

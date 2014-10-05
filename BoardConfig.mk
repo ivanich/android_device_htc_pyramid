@@ -66,6 +66,9 @@ BOARD_BLUETOOTH_USES_HCIATTACH_PROPERTY := false
 # Bluetooth/Wifi
 -include device/htc/msm8660-common/bcmdhd.mk
 
+# Hardware tunables
+BOARD_HARDWARE_CLASS := device/htc/pyramid/cmhw/
+
 # Filesystem
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
