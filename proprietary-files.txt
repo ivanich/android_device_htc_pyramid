@@ -9,6 +9,7 @@ bin/ipd
 bin/netmgrd
 bin/netsharing
 bin/qmuxd
+bin/radish
 bin/rmt_storage
 bin/thermald
 
