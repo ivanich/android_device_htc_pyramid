@@ -203,7 +203,7 @@ on boot
     chown system /sys/devices/platform/rs300000a7.65536/sync_sts
 
     # fast charge
-    write /sys/kernel/fast_charge/force_fast_charge 2
+    write /sys/kernel/fast_charge/force_fast_charge 1
 
     # Touch boost
     write /sys/module/cpu_boost/parameters/boost_ms 20
