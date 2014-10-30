@@ -5,12 +5,13 @@
 /dev/block/platform/msm_sdcc.1/by-name/adsp    /firmware_q6	vfat	ro,shortname=lower					wait
 #/dev/block/platform/msm_sdcc.1/by-name/wcnss	/firmware_wcnss	vfat	ro,shortname=lower					wait
 
-/dev/block/platform/msm_sdcc.1/by-name/boot      /boot		emmc	defaults						defaults
+/dev/block/platform/msm_sdcc.1/by-name/boot      /boot         emmc	defaults						defaults
 /dev/block/platform/msm_sdcc.1/by-name/recovery  /recovery     emmc	defaults						defaults
+/dev/block/platform/msm_sdcc.1/by-name/misc      /misc         emmc     defaults						defaults
 /dev/block/platform/msm_sdcc.1/by-name/devlog    /devlog       ext4	noatime,nosuid,nodev,barrier=0				wait
 /dev/block/platform/msm_sdcc.1/by-name/system    /system       ext4	rw,noatime,barrier=0					wait
 /dev/block/platform/msm_sdcc.1/by-name/cache     /cache        ext4	noatime,nosuid,nodev,barrier=0				wait
-/dev/block/platform/msm_sdcc.1/by-name/userdata  /data		ext4	noatime,nosuid,nodev,noauto_da_alloc,barrier=0		wait,encryptable=footer,length=-16384
+/dev/block/platform/msm_sdcc.1/by-name/userdata  /data         ext4	noatime,nosuid,nodev,noauto_da_alloc,barrier=0		wait,encryptable=footer,length=-16384
 
 # SD card
 /devices/platform/msm_sdcc.3/mmc_host/mmc1	auto	vfat	defaults		voldmanaged=sdcard0:auto,noemulatedsd
