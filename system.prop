@@ -18,20 +18,6 @@ ro.vold.umsdirtyratio=20
 
 # tweaks
 dalvik.vm.dexopt-data-only=1
+dalvik.vm.dexopt-flags=v=a,o=v,m=y,u=n
 windowsmgr.max_events_per_sec=300
-hs.systemserver=16m
-hs.app.process=16m
-hs.su=8m
-hs.app_process=16m
-debug.egl.profiler=1
-hwui.blacklist=0
-persist.sys.ui.hw=1
-ro.config.nocheckin=1
-profiler.force_disable_err_rpt=1
-profiler.force_disable_ulog=1
-video.accelerate.hw=1
-debug.performance.tuning=1
-ro.ril.disable.power.collapse=0
-ro.config.hw_power_saving=true
-ro.config.disable.hw_accel=false
 pm.sleep_mode=1
