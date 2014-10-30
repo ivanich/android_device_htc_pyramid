@@ -21,6 +21,9 @@
      for different hardware and product builds. -->
 <resources>
 
+    <!-- Indicate wheter the SD card is accessible without removing the battery-->
+    <bool name="config_batterySdCardAccessibility">true</bool>
+
     <!-- Default color for notification LED is green. -->
     <color name="config_defaultNotificationColor">#ff00ff00</color>
 
