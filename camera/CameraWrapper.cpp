@@ -118,7 +118,7 @@ static char *camera_fixup_getparams(int id, const char *settings)
 	params.set("caf-focus-mode", "default");
 
 #ifdef CAMERA_FRONT_VGA
-    if (id == CAMERA_FACING_FRONT) {
+    if (id == 1) {
         params.set(android::CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES,
                 "640x480,640x384,640x368,576x432,480x320,384x288,352x288,320x240,240x160,176x144");
     }
