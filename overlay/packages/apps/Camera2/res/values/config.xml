@@ -17,6 +17,8 @@
 <!-- Camera app resources that may need to be customized
      for different hardware or product builds. -->
 <resources>
+    <!-- Disable touch snapshot in video recording -->
+    <bool name="disableTouchSnapshot">true</bool>
     <bool name="cancelAutoFocusOnPreviewStopped">false</bool>
     <bool name="enableZSL">true</bool>
 </resources>
