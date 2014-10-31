@@ -1,5 +1,9 @@
 import init.pyramid.usb.rc
 
+on early-init
+   write /sys/block/mmcblk0/queue/read_ahead_kb 512
+   write /sys/block/mmcblk1/queue/read_ahead_kb 512
+
 on init
     mkdir /devlog 0700 root root
     mkdir /mnt/media_rw/sdcard0 0700 media_rw media_rw
