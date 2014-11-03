@@ -312,6 +312,10 @@ service dhcpcd_bt-pan /system/bin/dhcpcd -ABKL
 	disabled
 	oneshot
 
+service iprenew_bt-pan /system/bin/dhcpcd -n
+	disabled
+	oneshot
+
 service iprenew_wlan0 /system/bin/dhcpcd -n
 	disabled
 	oneshot
