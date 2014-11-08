@@ -44,7 +44,6 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.usb.default \
     audio_policy.msm8660 \
-    audio_policy.conf \
     audio.primary.msm8660 \
     libaudioutils \
     libdashplayer \
@@ -109,6 +108,10 @@ PRODUCT_PACKAGES += \
 # Net
 PRODUCT_PACKAGES += \
     libnetcmdiface
+
+# Audio policy configuration
+PRODUCT_COPY_FILES += \
+    device/htc/pyramid/configs/audio_policy.conf:system/etc/audio_policy.conf
 
 # Media configuration
 PRODUCT_COPY_FILES += \
