@@ -2,8 +2,8 @@ import init.pyramid.usb.rc
 
 on early-init
    write /sys/devices/system/cpu/cpu1/online 1
-   write /sys/block/mmcblk0/queue/read_ahead_kb 512
-   write /sys/block/mmcblk1/queue/read_ahead_kb 512
+   write /sys/block/mmcblk0/bdi/read_ahead_kb 512
+   write /sys/block/mmcblk0/queue/scheduler noop
 
 on init
     mkdir /devlog 0700 root root
@@ -381,6 +381,9 @@ on property:sys.boot_completed=1
     # Wake on volume
     write /sys/keyboard/vol_wakeup 1
     start thermald
+
+on property:init.svc.bootanim=stopped
+    write /sys/block/mmcblk0/queue/scheduler row
 
 on property:sys.radio.shutdown=true
     exec /system/bin/sh /system/etc/init.qcom.efs.sync.sh
