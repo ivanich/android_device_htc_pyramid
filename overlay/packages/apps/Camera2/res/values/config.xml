@@ -19,6 +19,6 @@
 <resources>
     <!-- Disable touch snapshot in video recording -->
     <bool name="disableTouchSnapshot">true</bool>
-    <bool name="cancelAutoFocusOnPreviewStopped">false</bool>
+    <bool name="cancelAutoFocusOnPreviewStopped">true</bool>
     <bool name="enableZSL">true</bool>
 </resources>
