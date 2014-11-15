@@ -136,8 +136,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.hw=1 \
     dev.pm.dyn_samplingrate=1 \
     ro.opengles.version=131072 \
-    debug.egl.recordable.rgba8888=1 \
-    lpa.decode=true
+    debug.egl.recordable.rgba8888=1
 
 # Camera wrapper
 PRODUCT_PACKAGES += \
