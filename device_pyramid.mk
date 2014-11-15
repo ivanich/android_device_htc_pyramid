@@ -110,6 +110,13 @@ PRODUCT_PACKAGES += \
     libnetcmdiface \
     crda
 
+# WiFi
+PRODUCT_PACKAGES += \
+    dhcpcd.conf \
+    hostapd \
+    wpa_supplicant \
+    wpa_supplicant.conf
+
 # Audio policy configuration
 PRODUCT_COPY_FILES += \
     device/htc/pyramid/configs/audio_policy.conf:system/etc/audio_policy.conf
