@@ -165,6 +165,9 @@ BOARD_BLUETOOTH_USES_HCIATTACH_PROPERTY := false
 # Hardware tunables
 BOARD_HARDWARE_CLASS := device/htc/pyramid/cmhw/
 
+# Misc
+BOARD_USES_LEGACY_MMAP := true
+
 # Filesystem
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_VOLD_MAX_PARTITIONS := 36
