@@ -107,7 +107,8 @@ PRODUCT_PACKAGES += \
 
 # Net
 PRODUCT_PACKAGES += \
-    libnetcmdiface
+    libnetcmdiface \
+    crda
 
 # Audio policy configuration
 PRODUCT_COPY_FILES += \
