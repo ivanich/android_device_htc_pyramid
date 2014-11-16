@@ -24,6 +24,8 @@
 # variant, so that it gets overwritten by the parent (which goes
 # against the traditional rules of inheritance).
 
+LOCAL_PATH := device/htc/pyramid
+
 BOARD_VENDOR := htc
 
 
@@ -58,8 +60,6 @@ BOARD_QCOM_TUNNEL_LPA_ENABLED := true
 
 # Camera
 BOARD_NEEDS_MEMORYHEAPPMEM := true
-COMMON_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
-COMMON_GLOBAL_CFLAGS += -DHTC_CAMERA_HARDWARE
 COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
 USE_DEVICE_SPECIFIC_CAMERA := true
 BOARD_CAMERA_FRONT_VGA := true
@@ -131,7 +131,7 @@ BOARD_BLUETOOTH_USES_HCIATTACH_PROPERTY := false
 -include device/htc/pyramid/bcmdhd.mk
 
 # Hardware tunables
-BOARD_HARDWARE_CLASS := device/htc/pyramid/cmhw/
+BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw
 
 # Misc
 BOARD_USES_LEGACY_MMAP := true
