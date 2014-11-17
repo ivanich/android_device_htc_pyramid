@@ -25,6 +25,7 @@
 # against the traditional rules of inheritance).
 
 LOCAL_PATH := device/htc/pyramid
+TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
 BOARD_VENDOR := htc
 
