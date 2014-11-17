@@ -64,10 +64,12 @@ lib/libchromatix_s5k3h1gx_zsl.so
 # Graphics
 lib/egl/eglsubAndroid.so
 lib/egl/libEGL_adreno200.so
+lib/egl/libGLES_android.so
+lib/egl/libGLESv2S3D_adreno200.so
 lib/egl/libGLESv1_CM_adreno200.so
 lib/egl/libGLESv2_adreno200.so
 lib/egl/libq3dtools_adreno200.so
-lib/egl/libplayback_adreno200.so
+lib/libCB.so
 lib/libC2D2.so
 lib/libc2d2_z180.so
 lib/libgsl.so
