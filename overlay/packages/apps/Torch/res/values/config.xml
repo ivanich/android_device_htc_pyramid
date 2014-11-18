@@ -21,13 +21,13 @@
      for different hardware and product builds. -->
 <resources>
     <!-- If there is no sysfs-based control mechanism, enable this -->
-    <bool name="useCameraInterface">false</bool>
+<!--    <bool name="useCameraInterface">false</bool>
     <string name="flashDevice">/sys/class/leds/flashlight/brightness</string>
     <string name="flashDeviceLuminosity">/sys/class/leds/flashlight/brightness</string>
-<string name="flashDeviceLuminosity2"></string>
+<string name="flashDeviceLuminosity2"></string> -->
 
-    <integer name="valueOn">10</integer>
-    <integer name="valueLow">10</integer>
+<!--    <integer name="valueOn">10</integer>
+    <integer name="valueLow">10</integer> -->
     <!-- Higher brightness causes screen to go off -->
-    <bool name="hasHighBrightness">false</bool>
+<!--    <bool name="hasHighBrightness">false</bool> -->
 </resources>
