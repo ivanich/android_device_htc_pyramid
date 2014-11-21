@@ -14,7 +14,7 @@
 /dev/block/platform/msm_sdcc.1/by-name/userdata  /data         ext4	noatime,nosuid,nodev,noauto_da_alloc,barrier=0		wait,encryptable=footer,length=-16384
 
 # SD card
-/devices/platform/msm_sdcc.3/mmc_host/mmc1	auto	vfat	defaults		voldmanaged=sdcard0:auto,noemulatedsd
+/devices/platform/msm_sdcc.3/mmc_host/mmc1*	auto	vfat	defaults		voldmanaged=sdcard0:auto,noemulatedsd
 
 # USB storage
-/devices/platform/msm_hsusb_host.0/usb1	auto	auto	defaults			voldmanaged=usbdisk:auto
+/devices/platform/msm_hsusb_host.0/usb1*	auto	auto	defaults			voldmanaged=usbdisk:auto
