@@ -1,9 +1,5 @@
 # Android fstab file.
 #<src>			<mnt_point>	<type>	<mnt_flags>						<fs_mgr_flags>
-#/dev/block/platform/msm_sdcc.1/by-name/dsps	/firmware_dsps	vfat	ro,shortname=lower					wait
-/dev/block/platform/msm_sdcc.1/by-name/radio	/firmware_radio	vfat	ro,shortname=lower					wait
-/dev/block/platform/msm_sdcc.1/by-name/adsp    /firmware_q6	vfat	ro,shortname=lower					wait
-#/dev/block/platform/msm_sdcc.1/by-name/wcnss	/firmware_wcnss	vfat	ro,shortname=lower					wait
 
 /dev/block/platform/msm_sdcc.1/by-name/boot      /boot         emmc	defaults						defaults
 /dev/block/platform/msm_sdcc.1/by-name/recovery  /recovery     emmc	defaults						defaults
