@@ -79,6 +79,7 @@ lib/libsc-a2xx.so
 
 # Misc libraries
 lib/libmm-color-convertor.so
+lib/libwvm.so
 
 # Radio
 lib/libdiag.so
