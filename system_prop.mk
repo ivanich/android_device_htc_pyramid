@@ -8,6 +8,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dev.pm.dyn_samplingrate=1 \
     ro.opengles.version=131072 \
     debug.egl.recordable.rgba8888=1
+# Media
+PRODUCT_PROPERTY_OVERRIDES += \
+    media.stagefright.use-awesome=true
 
 ## misc
 PRODUCT_PROPERTY_OVERRIDES += \
