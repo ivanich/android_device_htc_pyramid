@@ -100,6 +100,9 @@ TARGET_PROVIDES_LIBLIGHT := true
 ENABLE_WEBGL := true
 TARGET_FORCE_CPU_UPLOAD := true
 
+# Logging
+TARGET_USES_LOGD := false
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := pyramid
 
