@@ -148,6 +148,16 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 838859776
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 1252770816
 BOARD_FLASH_BLOCK_SIZE := 262144
 
+# Enable dex-preoptimization to speed up first boot sequence
+ifeq ($(HOST_OS),linux)
+  ifeq ($(TARGET_BUILD_VARIANT),userdebug)
+   ifeq ($(WITH_DEXPREOPT),)
+    WITH_DEXPREOPT := true
+   endif
+  endif
+endif
+DONT_DEXPREOPT_PREBUILTS := true
+
 # Twrp
 DEVICE_RESOLUTION = 540x960
 BOARD_HAS_NO_REAL_SDCARD := false
