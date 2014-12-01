@@ -161,7 +161,7 @@ DONT_DEXPREOPT_PREBUILTS := true
 
 # SELinux
 BOARD_SEPOLICY_DIRS += \
-    device/htc/msm8660-common/sepolicy
+    device/htc/pyramid/sepolicy
 
 BOARD_SEPOLICY_UNION += \
     bridgemgr.te \
