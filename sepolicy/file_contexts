@@ -1,0 +1,28 @@
+###################################
+# Dev nodes
+#
+/dev/msm_camera(/.*)?                           u:object_r:camera_device:s0
+/dev/msm_rotator                                u:object_r:graphics_device:s0
+/dev/mdm                                        u:object_r:mdm_device:s0
+/dev/block/bootdevice/by-name/m9kefs1           u:object_r:efs_boot_dev:s0
+/dev/block/bootdevice/by-name/m9kefs2           u:object_r:efs_boot_dev:s0
+/dev/block/bootdevice/by-name/m9kefs3           u:object_r:efs_boot_dev:s0
+/dev/block/bootdevice/by-name/m9kefsc           u:object_r:efs_boot_dev:s0
+
+###################################
+# System files
+#
+/system/bin/thermald                            u:object_r:thermal-engine_exec:s0
+/system/bin/qcks                                u:object_r:mdm_helper_exec:s0
+/system/bin/efks                                u:object_r:mdm_helper_exec:s0
+
+###################################
+# Data files
+#
+/data/qcks(/.*)?                                u:object_r:efs_data_file:s0
+
+###################################
+# SDIO transport control on Fusion
+#
+/sys/class/android_usb/f_rmnet_smd_sdio/transport  --  u:object_r:sysfs_rmnet:s0
+/sys/devices/virtual/android_usb/android0/f_rmnet_smd_sdio/transport  --  u:object_r:sysfs_rmnet:s0

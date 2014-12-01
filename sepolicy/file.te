@@ -1,0 +1,4 @@
+#efs file types
+type efs_data_file, file_type, data_file_type;
+#for Fusion's bridgemgr
+type sysfs_rmnet, fs_type, sysfs_type;

@@ -1,0 +1,2 @@
+# WifiStateMachine to access wpa_wlan0 socket
+allow system_server init:unix_dgram_socket sendto;

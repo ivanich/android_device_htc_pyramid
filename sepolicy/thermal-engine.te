@@ -1,0 +1,2 @@
+allow thermal-engine self:netlink_kobject_uevent_socket create;
+allow thermal-engine socket_device:dir w_dir_perms;

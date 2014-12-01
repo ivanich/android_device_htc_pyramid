@@ -1,0 +1,4 @@
+userdebug_or_eng(`
+  #Allow pp-daemon to access stream socket
+  allow mm-pp-daemon init:unix_stream_socket { read write };
+')
