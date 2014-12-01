@@ -1,0 +1,2 @@
+#allow rild to access smd_cmx_qmi device;
+allow rild smd_device:chr_file rw_file_perms;

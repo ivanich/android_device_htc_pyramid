@@ -1,0 +1,2 @@
+#mdm helper device
+type mdm_device, dev_type;
