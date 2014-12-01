@@ -1,0 +1,6 @@
+userdebug_or_eng(`
+  # Playready should be able to create/delete dir under /data/data
+  # Securemm should be able to create/delete dir under /data/misc
+  allow tee system_data_file:dir create_dir_perms;
+  allow tee system_data_file:file create_file_perms;
+')

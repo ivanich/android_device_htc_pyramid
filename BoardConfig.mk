@@ -107,7 +107,7 @@ TARGET_BOOTLOADER_BOARD_NAME := pyramid
 # Kernel
 BOARD_KERNEL_BASE := 0x48000000
 BOARD_KERNEL_PAGE_SIZE := 2048
-BOARD_KERNEL_CMDLINE := console=ttyHSL0 androidboot.hardware=pyramid no_console_suspend=1 androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := console=ttyHSL0 androidboot.hardware=pyramid no_console_suspend=1
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01400000
 TARGET_KERNEL_CONFIG := pyramid_defconfig
 TARGET_KERNEL_SOURCE := kernel/htc/pyramid
@@ -158,6 +158,26 @@ ifeq ($(HOST_OS),linux)
   endif
 endif
 DONT_DEXPREOPT_PREBUILTS := true
+
+# SELinux
+BOARD_SEPOLICY_DIRS += \
+    device/htc/msm8660-common/sepolicy
+
+BOARD_SEPOLICY_UNION += \
+    bridgemgr.te \
+    device.te \
+    file.te \
+    file_contexts \
+    mdm_helper.te \
+    mm-pp-daemon.te \
+    mpdecision.te \
+    qseecomd.te \
+    rild.te \
+    rmt_storage.te \
+    ssr_diag.te \
+    system_server.te\
+    thermal-engine.te \
+    wpa.te
 
 # Twrp
 DEVICE_RESOLUTION = 540x960
