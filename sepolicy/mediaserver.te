@@ -1,0 +1,3 @@
+allow mediaserver mediaserver:netlink_kobject_uevent_socket { create bind read write setopt getopt };
+allow mediaserver system_data_file:sock_file rw_file_perms;
+allow mediaserver system_server:unix_stream_socket { read write };
