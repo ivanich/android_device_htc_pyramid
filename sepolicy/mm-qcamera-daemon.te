@@ -1,0 +1,4 @@
+allow mm-qcamera-daemon { gpu_device video_device camera_device sensors_device audio_device }:chr_file rw_file_perms;
+allow mm-qcamera-daemon { camera_data_file system_data_file camera_socket }:sock_file { create_file_perms unlink create setattr };
+allow mm-qcamera-daemon init:unix_stream_socket { connectto write };
+allow mm-qcamera-daemon property_socket:sock_file { write };
