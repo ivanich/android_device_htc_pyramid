@@ -161,7 +161,8 @@ PRODUCT_PACKAGES += \
     init.pyramid.rc \
     init.pyramid.usb.rc \
     ueventd.pyramid.rc \
-    gps.pyramid
+    gps.pyramid \
+    remount.pyramid
 
 
 # Wifi
