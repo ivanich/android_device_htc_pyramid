@@ -11,10 +11,12 @@ public class HtcMsm8660RIL extends RIL {
 
     public HtcMsm8660RIL(Context context, int preferredNetworkType, int cdmaSubscription) {
         super(context, preferredNetworkType, cdmaSubscription);
+       mQANElements = 5;
     }
 
     public HtcMsm8660RIL(Context context, int preferredNetworkType, int cdmaSubscription, Integer instanceId) {
         super(context, preferredNetworkType, cdmaSubscription, instanceId);
+       mQANElements = 5;
     }
 
     @Override
