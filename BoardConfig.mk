@@ -143,6 +143,9 @@ BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril
 # Misc
 BOARD_USES_LEGACY_MMAP := true
 
+# SELinux
+-include device/qcom/sepolicy/sepolicy.mk
+
 # Filesystem
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_VOLD_MAX_PARTITIONS := 36
