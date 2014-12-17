@@ -1,0 +1,4 @@
+allow sysinit self:capability dac_override;
+allow sysinit system_data_file:file { open write append };
+allow sysinit app_data_file:dir search;
+allow sysinit app_data_file:file { read open getattr execute_no_trans ioctl };

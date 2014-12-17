@@ -1,0 +1,5 @@
+allow system_server wifi_data_file:lnk_file { read write };
+allow system_server timerirq_dev:chr_file { open read write ioctl };
+allow system_server cir_device:chr_file rw_file_perms;
+allow system_server oncrpc_device:dir { getattr search };
+allow system_server oncrpc_device:chr_file { getattr open read write };

@@ -1,0 +1,6 @@
+allow qmuxd shell_exec:file rx_file_perms;
+allow qmuxd sysfs_wake_lock:file rw_file_perms;
+allow qmuxd self:process execmem;
+allow qmuxd system_data_file:sock_file { getattr setattr create unlink };
+allow qmuxd system_data_file:dir rw_dir_perms;
+allow qmuxd data_test_data_file:sock_file { create getattr unlink };

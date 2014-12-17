@@ -1,0 +1,2 @@
+allow init_shell vfat:dir r_dir_perms;
+allow init_shell vfat:file getattr;

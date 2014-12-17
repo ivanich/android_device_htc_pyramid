@@ -1,0 +1,1 @@
+allow netd unlabeled:file { read open getattr };
