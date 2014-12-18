@@ -18,7 +18,7 @@ on init
     symlink /storage/sdcard0 /mnt/sdcard
     symlink /storage/usbdisk /usbdisk
     symlink /storage/usbdisk /mnt/usbdisk
-		 
+
     setprop ro.usb.idproduct.ums 0c86
     setprop ro.usb.idproduct.rndis 0c86
     setprop ro.usb.idproduct.mtp 0f87
@@ -32,7 +32,6 @@ on fs
     # create firmware mount points
     mkdir /firmware_radio 0771 system system
     mkdir /firmware_q6 0771 system system
-
     # mount all mmc partitions
     mount_all /fstab.pyramid
 
@@ -45,40 +44,11 @@ on fs
 
     chmod 0644 /proc/cmdline
 
-    # link firmware
-    # q6
-    
-    symlink /firmware_q6/q6.b09 /system/etc/firmware/q6.b09
-    symlink /firmware_q6/q6.b08 /system/etc/firmware/q6.b08
-    symlink /firmware_q6/q6.b07 /system/etc/firmware/q6.b07
-    symlink /firmware_q6/q6.b06 /system/etc/firmware/q6.b06
-    symlink /firmware_q6/q6.b05 /system/etc/firmware/q6.b05
-    symlink /firmware_q6/q6.b04 /system/etc/firmware/q6.b04
-    symlink /firmware_q6/q6.b03 /system/etc/firmware/q6.b03
-    symlink /firmware_q6/q6.b02 /system/etc/firmware/q6.b02
-    symlink /firmware_q6/q6.b01 /system/etc/firmware/q6.b01
-    symlink /firmware_q6/q6.b00 /system/etc/firmware/q6.b00
-    symlink /firmware_q6/q6.mdt /system/etc/firmware/q6.mdt
-    symlink /firmware_radio/modem.b09 /system/etc/firmware/modem.b09
-    symlink /firmware_radio/modem.b08 /system/etc/firmware/modem.b08
-    symlink /firmware_radio/modem.b07 /system/etc/firmware/modem.b07
-    symlink /firmware_radio/modem.b06 /system/etc/firmware/modem.b06
-    symlink /firmware_radio/modem.b05 /system/etc/firmware/modem.b05
-    symlink /firmware_radio/modem.b04 /system/etc/firmware/modem.b04
-    symlink /firmware_radio/modem.b03 /system/etc/firmware/modem.b03
-    symlink /firmware_radio/modem.b02 /system/etc/firmware/modem.b02
-    symlink /firmware_radio/modem.b01 /system/etc/firmware/modem.b01
-    symlink /firmware_radio/modem.b00 /system/etc/firmware/modem.b00
-    symlink /firmware_radio/modem.mdt /system/etc/firmware/modem.mdt
-		 
     setprop ro.crypto.tmpfs_options size=128m,mode=0771,uid=1000,gid=1000
 
-    mkdir /vendor/etc 0771 system system
-    symlink /system/vendor/etc/audio_effects.conf /vendor/etc/audio_effects.conf
-
     # Force loading of modem and Q6 images
-    write /dev/smd_pkt_loopback 1          
-    
+    write /dev/smd_pkt_loopback 1
+
    # link widevine drm library path
    symlink /system/vendor/lib /vendor/lib
 
@@ -93,8 +63,8 @@ on fs
     # create symlink to qcn wpa_supplicant folder
     symlink /data/misc/wifi/wpa_supplicant /data/system/wpa_supplicant
     symlink /dev/socket/wpa_wlan0 /data/system/wpa_supplicant/wlan0
-    
-    mount_all /remount.pyramid        
+
+    mount_all /remount.pyramid
 
 on post-fs-data
     # double check the perms and set owner
