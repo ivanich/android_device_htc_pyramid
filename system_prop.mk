@@ -23,7 +23,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # tweaks
 PRODUCT_PROPERTY_OVERRIDES += \
      dalvik.vm.dexopt-data-only=1 \
-     dalvik.vm.dexopt-flags=v=a,o=v,m=y,u=n \
+     dalvik.vm.dexopt-flags=m=y \
      windowsmgr.max_events_per_sec=300 \
      pm.sleep_mode=1
 
