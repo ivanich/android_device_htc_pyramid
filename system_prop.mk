@@ -40,7 +40,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
-    media.stagefright.use-awesome=true
+    media.stagefright.use-awesome=true \
+    af.resampler.quality=255
 
 ## misc
 PRODUCT_PROPERTY_OVERRIDES += \
