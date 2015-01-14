@@ -120,7 +120,7 @@ TARGET_KERNEL_SOURCE := kernel/htc/pyramid
 TARGET_RECOVERY_FSTAB := device/htc/pyramid/rootdir/etc/fstab.pyramid
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
-TARGET_RECOVERY_INITRC := device/htc/pyramid/recovery/init.rc
+TARGET_RECOVERY_INITRC := device/htc/pyramid/recovery/root/init.recovery.pyramid.rc
 
 # Required for Sensors
 COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
