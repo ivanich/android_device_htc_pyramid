@@ -115,15 +115,12 @@ TARGET_KERNEL_CONFIG := pyramid_defconfig
 TARGET_KERNEL_SOURCE := kernel/htc/pyramid
 
 TARGET_RECOVERY_FSTAB := device/htc/pyramid/rootdir/etc/fstab.pyramid
-RECOVERY_FSTAB_VERSION := 2
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TARGET_RECOVERY_INITRC := device/htc/pyramid/recovery/init.rc
 
 # Required for Sensors
 COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
-
-# Charge mode
-BOARD_CHARGING_MODE_BOOTING_LPM := /sys/htc_lpm/lpm_mode
 
 # Lights
 TARGET_HAS_NO_BLUE_LED := true

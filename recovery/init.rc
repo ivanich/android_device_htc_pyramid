@@ -10,18 +10,18 @@ on init
     export EXTERNAL_STORAGE /sdcard
 
     symlink /system/etc /etc
+    symlink /sbin/busybox /sbin/sh
 
-    mkdir /boot
-    mkdir /recovery
+    chmod 0755 /sbin/busybox
+
     mkdir /sdcard
-    mkdir /internal_sd
-    mkdir /external_sd
-    mkdir /sd-ext
-    mkdir /datadata
-    mkdir /emmc
     mkdir /system
     mkdir /data
+    mkdir /data/data
     mkdir /cache
+    mkdir /mtdcache
+    mkdir /devlog
+    mkdir /internal_sdcard
     mount /tmp /tmp tmpfs
 
     chown root shell /tmp
@@ -30,17 +30,18 @@ on init
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 18D1
     write /sys/class/android_usb/android0/idProduct 0c86
-    write /sys/class/android_usb/android0/functions adb
+    write /sys/class/android_usb/android0/functions mass_storage,adb
     write /sys/class/android_usb/android0/iManufacturer ${ro.product.manufacturer}
     write /sys/class/android_usb/android0/iProduct ${ro.product.model}
     write /sys/class/android_usb/android0/iSerial ${ro.serialno}
 
 on boot
-    # disable 2nd CPU core for heat
-    write /sys/devices/system/cpu/cpu1/online 0
-    chmod 444 /sys/devices/system/cpu/cpu1/online
+
+    ifup lo
+    hostname localhost
+    domainname localdomain
+
     class_start default
-    start choice_fn
 
 service ueventd /sbin/ueventd
     critical
@@ -49,19 +50,33 @@ service healthd /sbin/healthd -n
     critical
 
 service choice_fn /sbin/choice_fn
-    disabled
+oneshot
+
+service recovery /sbin/recovery
+disabled
+oneshot
 
 service power_test /sbin/power_test
-    disabled
+disabled
+oneshot
 
 service offmode_charging /sbin/offmode_charging
-    disabled
+disabled
+oneshot
+
+service detect_key /sbin/detect_key
+disabled
+oneshot
 
 service htcbatt /sbin/htcbatt
-    oneshot
+oneshot
+
+on property:sys.powerctl=*
+   powerctl ${sys.powerctl}
 
 service adbd /sbin/adbd recovery
     disabled
+    socket adbd stream 660 system system
 
 # Always start adbd on userdebug and eng builds
 on property:ro.debuggable=1
@@ -74,3 +89,4 @@ on property:service.adb.root=1
     write /sys/class/android_usb/android0/enable 0
     restart adbd
     write /sys/class/android_usb/android0/enable 1
+
