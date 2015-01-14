@@ -103,6 +103,9 @@ TARGET_PROVIDES_LIBLIGHT := true
 ENABLE_WEBGL := true
 TARGET_FORCE_CPU_UPLOAD := true
 
+# Charger
+BOARD_CHARGING_MODE_BOOTING_LPM := /sys/htc_lpm/lpm_mode
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := pyramid
 
