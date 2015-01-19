@@ -50,19 +50,7 @@ on fs
     write /dev/smd_pkt_loopback 1
 
    # link widevine drm library path
-   symlink /system/vendor/lib /vendor/lib
-
-    # wifi
-    mkdir /data/misc/wifi 0770 wifi wifi
-    mkdir /data/misc/wifi/sockets 0770 wifi wifi
-    mkdir /data/misc/wifi/hostapd 0770 wifi wifi
-    mkdir /data/misc/wifi/wpa_supplicant 0770 wifi wifi
-    mkdir /data/misc/dhcp 0770 dhcp dhcp
-    chown dhcp dhcp /data/misc/dhcp
-
-    # create symlink to qcn wpa_supplicant folder
-    symlink /data/misc/wifi/wpa_supplicant /data/system/wpa_supplicant
-    symlink /dev/socket/wpa_wlan0 /data/system/wpa_supplicant/wlan0
+    symlink /system/vendor/lib /vendor/lib
 
     mount_all /remount.pyramid
 
@@ -107,13 +95,6 @@ on boot
 
     # for modem link
     chown system system /sys/module/serial/parameters/modem_enabled
-
-    # wifi
-    mkdir /data/misc 1771 system misc
-    mkdir /data/misc/wifi 0770 wifi wifi
-    mkdir /data/misc/wifi/sockets 0770 wifi wifi
-    mkdir /data/misc/dhcp 0770 dhcp dhcp
-    chown dhcp dhcp /data/misc/dhcp
 
     # audio
     mkdir /data/audio 2770 media audio
