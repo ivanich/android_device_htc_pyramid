@@ -167,16 +167,6 @@ PRODUCT_PACKAGES += \
 # Wifi
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
 
-# Recovery
-PRODUCT_PACKAGES += \
-    lpm.rc \
-    init.recovery.pyramid.rc \
-    twrp.fstab \
-    choice_fn \
-    power_test \
-    offmode_charging \
-    htcbatt
-
 # Keylayouts and Key Character Maps
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/pmic8xxx_pwrkey.kl:system/usr/keylayout/pmic8xxx_pwrkey.kl \
