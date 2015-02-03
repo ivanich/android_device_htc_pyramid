@@ -212,7 +212,7 @@ service qmuxd /system/bin/qmuxd
     group radio audio bluetooth gps
 
 service rmt_storage /system/bin/rmt_storage /dev/block/mmcblk0p26 /dev/block/mmcblk0p27 /dev/block/mmcblk0p18 /dev/block/mmcblk0p17
-    class main
+    class core
     user root
 
 service thermald /system/bin/thermald
