@@ -1,9 +1,9 @@
 # Release name
 PRODUCT_RELEASE_NAME := pyramid
 
-# Boot animation (HACK 540.zip crashes PVR currently)
-TARGET_SCREEN_HEIGHT := 720
-TARGET_SCREEN_WIDTH := 480
+# Boot animation
+TARGET_SCREEN_HEIGHT := 960
+TARGET_SCREEN_WIDTH := 540
 
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
