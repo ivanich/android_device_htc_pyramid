@@ -26,6 +26,7 @@ on init
     setprop ro.usb.idproduct.ptp 0f87
 
     export EXTERNAL_STORAGE /storage/sdcard0
+    export SECONDARY_STORAGE /storage/usbdisk
 
 on fs
 
