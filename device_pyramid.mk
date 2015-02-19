@@ -98,9 +98,6 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PACKAGES += \
     hdmid
 
-# Torch
-PRODUCT_PACKAGES += \
-    Torch
 # DeviceSettings
 PRODUCT_PACKAGES += \
     DeviceSettings
