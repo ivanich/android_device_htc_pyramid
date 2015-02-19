@@ -39,10 +39,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=/system/lib/libqc-opt.so \
     debug.egl.recordable.rgba8888=1
 
-# Media
-PRODUCT_PROPERTY_OVERRIDES += \
-    af.resampler.quality=255
-
 ## misc
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.setupwizard.enable_bypass=1 \
