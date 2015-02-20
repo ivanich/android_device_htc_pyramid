@@ -1,4 +1,6 @@
-import lpm.rc
+on init
+    export PATH /sbin
+    export LD_LIBRARY_PATH .:/sbin
 
 on boot
     write /sys/module/rpm_resources/enable_low_power/L2_cache 1
@@ -11,6 +13,11 @@ on boot
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 384000
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 384000
     setprop recovery.perf.mode 0
+    start chargeled
+
+on charger
+    start choice_fn
+    start chargeled
 
 on property:recovery.perf.mode=0
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "ondemand"
@@ -21,3 +28,39 @@ on property:recovery.perf.mode=1
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "performance"
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor "performance"
+
+service chargeled /sbin/chargeled
+    disabled
+    seclabel u:r:healthd:s0
+
+service choice_fn /sbin/choice_fn
+    disabled
+    seclabel u:r:recovery:s0
+
+service detect_key /sbin/detect_key
+    disabled
+    seclabel u:r:recovery:s0
+
+service offmode_charging /sbin/offmode_charging
+    disabled
+    seclabel u:r:healthd:s0
+
+service htcbatt /sbin/htcbatt
+    oneshot
+    seclabel u:r:healthd:s0
+
+service power_test /sbin/power_test
+    disabled
+    seclabel u:r:recovery:s0
+
+# Always start adbd on userdebug and eng builds
+on property:ro.debuggable=1
+    #write /sys/class/android_usb/android0/enable 1
+    #start adbd
+    setprop service.adb.root 1
+
+# Restart adbd so it can run as root
+on property:service.adb.root=1
+    write /sys/class/android_usb/android0/enable 0
+    restart adbd
+    write /sys/class/android_usb/android0/enable 1

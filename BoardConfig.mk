@@ -145,6 +145,9 @@ BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril
 # Misc
 BOARD_USES_LEGACY_MMAP := true
 
+# Recovery
+TARGET_RECOVERY_DEVICE_MODULES += chargeled
+
 # SELinux
 -include device/qcom/sepolicy/sepolicy.mk
 
@@ -152,7 +155,9 @@ BOARD_SEPOLICY_DIRS += \
     device/htc/pyramid/sepolicy
 
 BOARD_SEPOLICY_UNION += \
-    platform_app.te
+    platform_app.te \
+    property_contexts \
+    recovery.te
 
 # Filesystem
 TARGET_USERIMAGES_USE_EXT4 := true
