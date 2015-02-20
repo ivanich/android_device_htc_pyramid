@@ -17,6 +17,8 @@ on boot
 
 on charger
     start choice_fn
+    start detect_key
+    start offmode_charging
     start chargeled
 
 on property:recovery.perf.mode=0
@@ -39,7 +41,8 @@ service choice_fn /sbin/choice_fn
 
 service detect_key /sbin/detect_key
     disabled
-    seclabel u:r:recovery:s0
+    oneshot
+    seclabel u:r:healthd:s0
 
 service offmode_charging /sbin/offmode_charging
     disabled
@@ -51,6 +54,7 @@ service htcbatt /sbin/htcbatt
 
 service power_test /sbin/power_test
     disabled
+    oneshot
     seclabel u:r:recovery:s0
 
 # Always start adbd on userdebug and eng builds

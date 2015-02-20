@@ -157,6 +157,7 @@ BOARD_SEPOLICY_DIRS += \
 BOARD_SEPOLICY_UNION += \
     platform_app.te \
     property_contexts \
+    healthd.te \
     recovery.te
 
 # Filesystem
