@@ -41,7 +41,6 @@
 
 /* Copyright (c) 2010-2011, Code Aurora Forum. */
 
-#include <rpc/fixes.h>
 #include <rpc/rpc.h>
 #include <sys/select.h>
 #include <sys/types.h>
@@ -156,7 +155,7 @@ static void* svc_context(void *__u)
                     /* FIXME: need to take xprt->lock */
                     registered_server *trav = xprt->servers;
                     for (; trav; trav = trav->next)
-                        if ((trav->xdr) && (trav->xdr->fd == n)) {
+		      if ((trav->xdr) && (trav->xdr->fd == n)) {
                             /* read the entire RPC */
                             if (trav->xdr->xops->read(trav->xdr) == 0) {
                                 E("%08x:%08x ONCRPC read error: aborting!\n",
@@ -202,7 +201,6 @@ SVCXPRT *svcrtr_create (void)
 
 void svc_destroy(SVCXPRT *xprt)
 {
-    UNUSED(xprt);
     /* the last call to xprt_unregister() does the job */
 }
 
@@ -235,7 +233,6 @@ bool_t svc_register (SVCXPRT *xprt, rpcprog_t prog, rpcvers_t vers,
                      __dispatch_fn_t dispatch,
                      rpcprot_t protocol)
 {
-    UNUSED(protocol);
     struct rpcrouter_ioctl_server_args args;
     registered_server* svc;
 
@@ -397,9 +394,9 @@ void svc_unregister (SVCXPRT *xprt, rpcprog_t prog, rpcvers_t vers) {
 
         free(found);
         V("RPC server %08x:%d: after unregistering,"
-          "%d servers, %d cb servers left.\n",
+	  "%d servers, %d cb servers left.\n",
           (unsigned)prog, (unsigned)vers,
-          xprt->num_servers, xprt->num_cb_servers);
+	  xprt->num_servers, xprt->num_cb_servers);
     }
     pthread_mutex_unlock(&xprt->lock);
 }
@@ -435,12 +432,11 @@ void svc_dispatch(registered_server *svc, SVCXPRT *xprt)
     D("reading on fd %d for %08x:%d\n", 
       svc->xdr->fd, (int)svc->x_prog, (int)svc->x_vers);
 
-    uint32 op   = EXTRACT_32BITS(&(svc->xdr->in_msg[RPC_OFFSET+4]));
-    uint32 prog = EXTRACT_32BITS(&(svc->xdr->in_msg[RPC_OFFSET+12]));
-    uint32 vers = EXTRACT_32BITS(&(svc->xdr->in_msg[RPC_OFFSET+16]));
-    uint32 proc = EXTRACT_32BITS(&(svc->xdr->in_msg[RPC_OFFSET+20]));
+    uint32 prog = ntohl(((uint32 *)(svc->xdr->in_msg))[RPC_OFFSET+3]);
+    uint32 vers = ntohl(((uint32 *)(svc->xdr->in_msg))[RPC_OFFSET+4]);
+    uint32 proc = ntohl(((uint32 *)(svc->xdr->in_msg))[RPC_OFFSET+5]);
 
-    if (op != RPC_MSG_CALL) {
+    if (ntohl(((uint32 *)svc->xdr->in_msg)[RPC_OFFSET+1]) != RPC_MSG_CALL) {
         E("ERROR: expecting an RPC call on server channel!\n");
         return;
     }
@@ -563,12 +559,12 @@ svc_sendreply (SVCXPRT *xprt, xdrproc_t xdr_results,
             !xdr_results(serv->xdr, xdr_location)) 
             return FALSE;
 
-        memcpy(&(serv->xdr->out_msg[RPC_OFFSET]),
-            &(serv->xdr->in_msg[RPC_OFFSET]), sizeof(uint32));
+        ((uint32 *)(serv->xdr->out_msg))[RPC_OFFSET] =
+            ((uint32 *)(serv->xdr->in_msg))[RPC_OFFSET]; //RPC xid
         LIBRPC_DEBUG("%08x:%d sending RPC reply (XID %d)\n",
           serv->xdr->x_prog,
           serv->xdr->x_vers,
-          EXTRACT_32BITS(&(serv->xdr->out_msg[RPC_OFFSET])));
+          ntohl(((uint32 *)(serv->xdr->out_msg))[RPC_OFFSET]));
         XDR_MSG_SEND(serv->xdr);
         return TRUE;
     }

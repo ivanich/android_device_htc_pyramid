@@ -14,7 +14,6 @@ LOCAL_CFLAGS+=-DRPC_OFFSET=0
 LOCAL_COPY_HEADERS_TO:= librpc/rpc
 LOCAL_COPY_HEADERS:= \
 	rpc/clnt.h \
-	rpc/fixes.h \
 	rpc/pmap_clnt.h \
 	rpc/rpc.h \
 	rpc/rpc_router_ioctl.h \

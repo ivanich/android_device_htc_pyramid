@@ -28,21 +28,19 @@
  */
 
 #include <hardware/gps.h>
-#include <rpc/fixes.h>
+
 #include <stdlib.h>
 
 extern const GpsInterface* get_gps_interface();
 
 const GpsInterface* gps__get_gps_interface(struct gps_device_t* dev)
 {
-    UNUSED(dev);
     return get_gps_interface();
 }
 
 static int open_gps(const struct hw_module_t* module, char const* name,
         struct hw_device_t** device)
 {
-    UNUSED(name);
     struct gps_device_t *dev = malloc(sizeof(struct gps_device_t));
     memset(dev, 0, sizeof(*dev));
 

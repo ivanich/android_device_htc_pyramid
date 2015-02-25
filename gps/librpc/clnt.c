@@ -1,6 +1,5 @@
 /* Copyright (c) 2009-2011, Code Aurora Forum. */
 
-#include <rpc/fixes.h>
 #include <rpc/rpc.h>
 #include <arpa/inet.h>
 #include <rpc/rpc_router_ioctl.h>
@@ -126,9 +125,9 @@ static void *cb_context(void *__u)
         if (the_xprt) {
             void *svc;
             rpcprog_t prog =
-                EXTRACT_32BITS(&(client->xdr->in_msg[RPC_OFFSET+12]));
+                ntohl(((uint32 *)(client->xdr->in_msg))[RPC_OFFSET+3]);
             rpcvers_t vers =
-                EXTRACT_32BITS(&(client->xdr->in_msg[RPC_OFFSET+16]));
+                ntohl(((uint32 *)(client->xdr->in_msg))[RPC_OFFSET+4]);
             
             svc = svc_find(the_xprt, prog, vers);
             if (svc) {
@@ -137,7 +136,7 @@ static void *cb_context(void *__u)
                   "callback client %08x:%08x.\n",
                   client->xdr->x_prog,
                   client->xdr->x_vers,
-                  EXTRACT_32BITS(&(client->xdr->in_msg[RPC_OFFSET])),
+                  ntohl(((uint32 *)(client->xdr->in_msg))[RPC_OFFSET]),
                   client->xdr,
                   (uint32_t)prog, (int)vers);
                 /* We transplant the xdr of the client into the entry 
@@ -370,15 +369,14 @@ static void *rx_context(void *__u __attribute__((unused)))
             client->input_xdr_busy = 1;
             pthread_mutex_unlock(&client->input_xdr_lock);
 
-            uint32 in;
-            memcpy(&in, &(client->xdr->in_msg[RPC_OFFSET+4]), sizeof(uint32));
-            if (in == htonl(RPC_MSG_REPLY)) {
+            if (((uint32 *)(client->xdr->in_msg))[RPC_OFFSET+1] ==
+                htonl(RPC_MSG_REPLY)) {
                 /* Wake up the RPC client to receive its data. */
                 LIBRPC_DEBUG("%08x:%08x received REPLY (XID %d), "
                   "grabbing mutex to wake up client.\n",
                   client->xdr->x_prog,
                   client->xdr->x_vers,
-                  EXTRACT_32BITS(&(client->xdr->in_msg[RPC_OFFSET])));
+                  ntohl(((uint32 *)client->xdr->in_msg)[RPC_OFFSET]));
                 pthread_mutex_lock(&client->wait_reply_lock);
                 D("%08x:%08x got mutex, waking up client.\n",
                   client->xdr->x_prog,
@@ -429,7 +427,6 @@ clnt_call(
     caddr_t        rets_ptr,
     struct timeval timeout)
 {
-    UNUSED(timeout);
     opaque_auth cred;
     opaque_auth verf;
     rpc_reply_header reply_header;
@@ -502,11 +499,12 @@ clnt_call(
 
     D("%08x:%08x received reply.\n", client->xdr->x_prog, client->xdr->x_vers);
 
-    uint32 in = EXTRACT_32BITS(&(xdr->in_msg[RPC_OFFSET]));
-    uint32 out = EXTRACT_32BITS(&(xdr->out_msg[RPC_OFFSET]));
-    if (out != in) {
+    if (((uint32 *)xdr->out_msg)[RPC_OFFSET] != 
+        ((uint32 *)xdr->in_msg)[RPC_OFFSET]) {
         E("%08x:%08x XID mismatch: got %d, expecting %d.\n",
-          client->xdr->x_prog, client->xdr->x_vers, in, out);
+          client->xdr->x_prog, client->xdr->x_vers,
+          ntohl(((uint32 *)xdr->in_msg)[RPC_OFFSET]),
+          ntohl(((uint32 *)xdr->out_msg)[RPC_OFFSET]));
         ret = RPC_CANTRECV;
         goto out_unlock;
     }
@@ -683,8 +681,6 @@ CLIENT *clnt_create(
     uint32 vers,
     char * proto)
 {
-    UNUSED(host);
-    UNUSED(proto);
     CLIENT *client = calloc(1, sizeof(CLIENT));
     if (client) {
         char name[20];
