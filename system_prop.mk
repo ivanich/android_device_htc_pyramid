@@ -44,3 +44,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.setupwizard.enable_bypass=1 \
     dalvik.vm.lockprof.threshold=500 \
     ro.com.google.locationfeatures=1
+
+# USB-OTG
+persist.sys.isUsbOtgEnabled=true
