@@ -54,6 +54,7 @@ on fs
     symlink /system/vendor/lib /vendor/lib
 
     mount_all /remount.pyramid
+    swapon_all /fstab.pyramid
 
 on post-fs-data
     # double check the perms and set owner
