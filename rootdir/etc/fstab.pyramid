@@ -19,4 +19,7 @@
 /devices/platform/msm_sdcc.3/mmc_host/mmc1*	auto	vfat	defaults		voldmanaged=sdcard0:auto,noemulatedsd
 
 # USB storage
-/devices/platform/msm_hsusb_host.0/usb1*	auto	auto	defaults			voldmanaged=usbdisk:auto
+/devices/platform/msm_hsusb_host.0/usb1*	auto	auto	defaults		voldmanaged=usbdisk:auto
+
+# ZRAM
+/dev/block/zram0				none 	swap 	defaults 		zramsize=268435456
