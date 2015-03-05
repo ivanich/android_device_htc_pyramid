@@ -318,10 +318,6 @@ on property:sys.boot_completed=1
     chown root system /sys/devices/system/cpu/mfreq
     chmod 220 /sys/devices/system/cpu/mfreq
     write /dev/cpuctl/apps/cpu.notify_on_migrate 1
-
-    # Set up UKSM
-    write /sys/kernel/mm/uksm/run 1
-
     # Wake on volume
     write /sys/keyboard/vol_wakeup 1
     start thermald
