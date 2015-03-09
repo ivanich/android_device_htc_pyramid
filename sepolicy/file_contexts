@@ -44,4 +44,3 @@
 # CMHW
 /sys/keyboard/vol_wakeup                               u:object_r:volwake_sysfs:s0
 /sys/class/timed_output/vibrator/voltage_level         u:object_r:vibeamp_sysfs:s0
-/sys/module/mdp/parameters/mdp_gamma_cooler_colors     u:object_r:gamma_sysfs:s0
