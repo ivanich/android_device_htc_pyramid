@@ -36,6 +36,7 @@ on fs
 
     # mount all mmc partitions
     mount_all /fstab.pyramid
+    swapon_all /fstab.pyramid
 
     mkdir /data/tombstones 0771 system system
     symlink /data/tombstones /tombstones
