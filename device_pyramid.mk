@@ -98,10 +98,6 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PACKAGES += \
     hdmid
 
-# DeviceSettings
-PRODUCT_PACKAGES += \
-    DeviceSettings
-
 # USB
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
