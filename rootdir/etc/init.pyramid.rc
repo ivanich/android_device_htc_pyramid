@@ -34,6 +34,9 @@ on fs
     mkdir /firmware_radio 0771 system system
     mkdir /firmware_q6 0771 system system
 
+    write /sys/block/zram0/comp_algorithm "lz4"
+    write /sys/block/zram0/max_comp_streams 2
+
     # mount all mmc partitions
     mount_all /fstab.pyramid
     swapon_all /fstab.pyramid
