@@ -68,6 +68,9 @@ TARGET_RELEASE_CPPFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
 USE_DEVICE_SPECIFIC_CAMERA := true
 BOARD_CAMERA_FRONT_VGA := true
 
+# Charger
+BOARD_CHARGER_SHOW_PERCENTAGE := true
+
 # FM Radio
 # 4.2 -> commenting these for audio policy
 #BOARD_HAVE_QCOM_FM := true
