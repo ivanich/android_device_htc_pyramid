@@ -179,6 +179,9 @@ on boot
     chmod 0664 /sys/class/timed_output/vibrator/voltage_level
     restorecon /sys/class/timed_output/vibrator/voltage_level
 
+    # Display color calibration
+    chown system system /sys/class/graphics/fb0/kcal
+
 # Services start here
 service qcamerasvr /system/bin/mm-qcamera-daemon
     class main
