@@ -235,9 +235,8 @@ on boot
     chown root system /sys/class/timed_output/vibrator/voltage_level
     chmod 0664 /sys/class/timed_output/vibrator/voltage_level
 
-    # Color temp
-    chown system system /sys/module/mdp/parameters/mdp_gamma_cooler_colors
-    chmod 0664 /sys/module/mdp/parameters/mdp_gamma_cooler_colors
+    # Display color calibration
+    chown system system /sys/class/graphics/fb0/kcal
 
 # Services start here
 service qcamerasvr /system/bin/mm-qcamera-daemon

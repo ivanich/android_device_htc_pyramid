@@ -92,9 +92,6 @@ PRODUCT_PACKAGES += \
 # Torch
 PRODUCT_PACKAGES += \
     Torch
-# DeviceSettings
-PRODUCT_PACKAGES += \
-    DeviceSettings
 
 # USB
 PRODUCT_PACKAGES += \
