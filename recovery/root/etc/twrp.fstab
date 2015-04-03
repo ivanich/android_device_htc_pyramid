@@ -7,4 +7,6 @@
 /cache			ext4		/dev/block/mmcblk0p24
 /misc			emmc		/dev/block/mmcblk0p31
 /sdcard			vfat		/dev/block/mmcblk1p1	/dev/block/mmcblk1	flags=display="MicroSD card";storage;wipeingui;removable
-/sd-ext			ext4		/dev/block/mmcblk1p2
+/sd-ext			ext4		/dev/block/mmcblk1p2				flags=display="SD-Ext";wipeingui;removable
+#/usb-otg		vfat		/dev/block/sda1		/dev/block/sda		flags=display="USB OTG";storage;wipeingui;removable
+
