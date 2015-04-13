@@ -31,7 +31,7 @@
 #include <hardware/hardware.h>
 #include <hardware/camera.h>
 #include <camera/Camera.h>
-#include <camera/CameraParameters.h>
+#include <camera/CameraParameters2.h>
 
 static android::Mutex gCameraWrapperLock;
 static camera_module_t *gVendorModule = 0;
@@ -97,7 +97,7 @@ static int check_vendor_module()
 
 static char *camera_fixup_getparams(int id, const char *settings)
 {
-    android::CameraParameters params;
+    android::CameraParameters2 params;
     params.unflatten(android::String8(settings));
 
 #if !LOG_NDEBUG
@@ -142,7 +142,7 @@ static char *camera_fixup_getparams(int id, const char *settings)
 
 static char *camera_fixup_setparams(int id, const char *settings)
 {
-    android::CameraParameters params;
+    android::CameraParameters2 params;
     params.unflatten(android::String8(settings));
 
 #if !LOG_NDEBUG
