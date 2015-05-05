@@ -142,6 +142,7 @@ BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril
 
 # Misc
 BOARD_USES_LEGACY_MMAP := true
+BOARD_SUPPRESS_EMMC_WIPE := true
 
 # Use dlmalloc
 MALLOC_IMPL := dlmalloc
