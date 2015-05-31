@@ -14,7 +14,7 @@
 /dev/kgsl-2d0             0666   root       root
 /dev/kgsl-2d1             0666   root       root
 
-/dev/ttyHS0               0660   bluetooth  bluetooth
+/dev/ttyHS0               0666   bluetooth  bluetooth
 /dev/ttyGS0               0660   system     system
 /dev/sdio_tty_ciq_00      0660   system     system
 /dev/msm_rotator          0660   system     graphics
@@ -31,6 +31,7 @@
 /dev/tzcom                0660   system     audio
 /dev/qce                  0660   system     audio
 /dev/msm_pcm_lp_dec       0660   system     audio
+/dev/msm_audio_dev_ctrl   0666   system     audio
 # HTC
 /dev/smd0                 0640   radio     radio
 /dev/smd4                 0640   radio     radio
