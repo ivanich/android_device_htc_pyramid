@@ -119,6 +119,10 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     wpa_supplicant.conf
 
+# Bluetooth
+PRODUCT_PACKAGES += \
+    bt_vendor.conf
+
 # Audio policy configuration
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
