@@ -3,23 +3,34 @@ import init.qcom.power.rc
 
 on early-init
 
-   # ZRAM
-   write /sys/block/zram0/comp_algorithm lz4
-   write /sys/block/zram0/max_comp_streams 2
+    # ZRAM
+    write /sys/block/zram0/comp_algorithm lz4
+    write /sys/block/zram0/max_comp_streams 2
 
 on init
     mkdir /devlog 0700 root root
-    mkdir /mnt/media_rw/sdcard0 0700 media_rw media_rw
-    mkdir /mnt/media_rw/usbdisk 0700 media_rw media_rw
 
-    mkdir /storage/sdcard0 0700 root root
-    mkdir /storage/usbdisk 0700 root root
+    # See storage config details at http://source.android.com/tech/storage/
+    mkdir /mnt/shell/emulated 0700 shell shell
+    mkdir /storage/emulated 0555 root root
 
-    # for backwards compatibility
-    symlink /storage/sdcard0 /sdcard
-    symlink /storage/sdcard0 /mnt/sdcard
-    symlink /storage/usbdisk /usbdisk
-    symlink /storage/usbdisk /mnt/usbdisk
+    export EXTERNAL_STORAGE /storage/emulated/legacy
+    export EMULATED_STORAGE_SOURCE /mnt/shell/emulated
+    export EMULATED_STORAGE_TARGET /storage/emulated
+
+    # Secondary storage
+    mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
+    mkdir /storage/sdcard1 0700 root root
+    export SECONDARY_STORAGE /storage/sdcard1
+
+    # Secondary data (optional)
+    mkdir /data1 0771 root root
+
+    # Support legacy paths
+    symlink /storage/emulated/legacy /sdcard
+    symlink /storage/emulated/legacy /mnt/sdcard
+    symlink /storage/emulated/legacy /storage/sdcard0
+    symlink /mnt/shell/emulated/0 /storage/emulated/legacy
 
     setprop ro.usb.idproduct.ums 0c86
     setprop ro.usb.idproduct.rndis 0c86
@@ -27,17 +38,16 @@ on init
     setprop ro.usb.idproduct.mtp_adb 0f87
     setprop ro.usb.idproduct.ptp 0f87
 
-    export EXTERNAL_STORAGE /storage/sdcard0
-    export SECONDARY_STORAGE /storage/usbdisk
-
 on fs
-
     # create firmware mount points
     mkdir /firmware_radio 0771 system system
     mkdir /firmware_q6 0771 system system
     # mount all mmc partitions
     mount_all /fstab.pyramid
+    # init and enable swap partitions (zram and cache)
+    mkswap /dev/block/platform/msm_sdcc.1/by-name/cache
     swapon_all /fstab.pyramid
+    write /proc/sys/vm/swappiness 60
 
     mkdir /data/tombstones 0771 system system
     symlink /data/tombstones /tombstones
@@ -49,12 +59,16 @@ on fs
     chmod 0644 /proc/cmdline
 
     setprop ro.crypto.tmpfs_options size=128m,mode=0771,uid=1000,gid=1000
+    setprop ro.crypto.fuse_sdcard true
 
     # Force loading of modem and Q6 images
     write /dev/smd_pkt_loopback 1
 
-   # link widevine drm library path
+    # link widevine drm library path
     symlink /system/vendor/lib /vendor/lib
+
+    # run device's script
+    exec /init.pyramid.sh
 
     mount_all /remount.pyramid
 
@@ -62,6 +76,8 @@ on post-fs-data
     # double check the perms and set owner
     chown root root /devlog
     chmod 0700 /devlog
+
+    mkdir /data/media 0770 media_rw media_rw
 
     # Set indication (checked by vold) that we have finished this action
     setprop vold.post_fs_data_done 1
@@ -241,29 +257,29 @@ service dhcpcd_wlan0 /system/bin/dhcpcd -ABKL
     oneshot
 
 service dhcpcd_p2p /system/bin/dhcpcd -aABKL
-	disabled
-	oneshot
+    disabled
+    oneshot
 
 service dhcpcd_bt-pan /system/bin/dhcpcd -ABKL
-	disabled
-	oneshot
+    disabled
+    oneshot
 
 service iprenew_bt-pan /system/bin/dhcpcd -n
-	disabled
-	oneshot
+    disabled
+    oneshot
 
 service iprenew_wlan0 /system/bin/dhcpcd -n
-	disabled
-	oneshot
-# wifi--
+    disabled
+    oneshot
 
-service fuse_sdcard0 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard0 /storage/sdcard0
-        class late_start
-        disabled
+# external sdcard daemon running as media_rw (1023)
+service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
+    class late_start
+    disabled
 
-service fuse_usbdisk /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/usbdisk /storage/usbdisk
-	class late_start
-	disabled
+# virtual sdcard daemon running as media_rw (1023)
+service sdcard /system/bin/sdcard -u 1023 -g 1023 -l /data/media /mnt/shell/emulated
+    class late_start
 
 on property:init.svc.bootanim=stopped
     start qcom-post-boot
@@ -278,4 +294,3 @@ on property:service.adb.root=1
 
 on property:sys.radio.shutdown=true
     exec /system/bin/sh /system/etc/init.qcom.efs.sync.sh
-
