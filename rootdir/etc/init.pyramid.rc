@@ -223,11 +223,6 @@ service rmt_storage /system/bin/rmt_storage /dev/block/mmcblk0p26 /dev/block/mmc
     class core
     user root
 
-service thermald /system/bin/thermald
-    user root
-    group root
-    disabled
-
 service wpa_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
     -e/data/misc/wifi/entropy.bin -g@android:wpa_wlan0
@@ -326,7 +321,6 @@ on property:sys.boot_completed=1
     chmod 220 /sys/devices/system/cpu/mfreq
     # Wake on volume
     write /sys/keyboard/vol_wakeup 1
-    start thermald
 
 on property:init.svc.bootanim=stopped
     write /sys/block/mmcblk0/queue/scheduler fiops
