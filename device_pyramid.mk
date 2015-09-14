@@ -48,6 +48,7 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.r_submix.default \
     audio.usb.default \
+    audio_policy.msm8660 \
     audio.primary.msm8660 \
     libaudioutils \
     libdashplayer \
