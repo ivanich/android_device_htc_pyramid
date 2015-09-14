@@ -50,6 +50,7 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     audio_policy.msm8660 \
     audio.primary.msm8660 \
+    audio_policy.conf \
     libaudioutils \
     libdashplayer \
     libaudio-resampler
@@ -123,10 +124,6 @@ PRODUCT_PACKAGES += \
 # Bluetooth
 PRODUCT_PACKAGES += \
     bt_vendor.conf
-
-# Audio policy configuration
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
 
 # Media configuration
 PRODUCT_COPY_FILES += \
