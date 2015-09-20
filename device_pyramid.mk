@@ -108,6 +108,11 @@ PRODUCT_PACKAGES += \
     make_ext4fs \
     setup_fs
 
+# IPv6 tethering
+PRODUCT_PACKAGES += \
+    ebtables \
+    ethertypes
+
 # Net
 PRODUCT_PACKAGES += \
     libnetcmdiface \
