@@ -1,7 +1,7 @@
 import init.pyramid.usb.rc
+import init.qcom.power.rc
 
 on early-init
-   write /sys/devices/system/cpu/cpu1/online 1
 
    # ZRAM
    write /sys/block/zram0/comp_algorithm lz4
@@ -167,12 +167,6 @@ on boot
     chown system /sys/devices/platform/rs300000a7.65536/force_sync
     chown system /sys/devices/platform/rs300000a7.65536/sync_sts
 
-    # Touch boost
-    write /sys/module/cpu_boost/parameters/boost_ms 20
-    write /sys/module/cpu_boost/parameters/sync_threshold 1242000
-    write /sys/module/cpu_boost/parameters/input_boost_freq 1134000
-    write /sys/module/cpu_boost/parameters/input_boost_ms 40
-
     # Vibration intensity
     chown root system /sys/class/timed_output/vibrator/voltage_level
     chmod 0664 /sys/class/timed_output/vibrator/voltage_level
@@ -184,6 +178,9 @@ on boot
 
     # Display color calibration
     chown system system /sys/class/graphics/fb0/kcal
+
+    # Wake on volume
+    write /sys/keyboard/vol_wakeup 1
 
 # Services start here
 service qcamerasvr /system/bin/mm-qcamera-daemon
@@ -278,47 +275,6 @@ on property:service.adb.root=1
     write /sys/class/android_usb/android0/enable 0
     restart adbd
     write /sys/class/android_usb/android0/enable 1
-
-on property:sys.boot_completed=1
-    write /sys/module/rpm_resources/enable_low_power/L2_cache 1
-    write /sys/module/rpm_resources/enable_low_power/pxo 1
-    write /sys/module/rpm_resources/enable_low_power/vdd_dig 2
-    write /sys/module/rpm_resources/enable_low_power/vdd_mem 2
-    write /sys/module/rpm_resources/enable_low_power/rpm_cpu 1
-    write /sys/module/pm_8x60/modes/cpu0/power_collapse/suspend_enabled 1
-    write /sys/module/pm_8x60/modes/cpu1/power_collapse/suspend_enabled 1
-    write /sys/module/pm_8x60/modes/cpu0/standalone_power_collapse/suspend_enabled 1
-    write /sys/module/pm_8x60/modes/cpu1/standalone_power_collapse/suspend_enabled 1
-    write /sys/module/pm_8x60/modes/cpu0/power_collapse/idle_enabled 1
-    write /sys/module/pm_8x60/modes/cpu1/power_collapse/idle_enabled 1
-    write /sys/module/pm_8x60/modes/cpu0/standalone_power_collapse/idle_enabled 1
-    write /sys/module/pm_8x60/modes/cpu1/standalone_power_collapse/idle_enabled 1
-    write /sys/module/pm_8660/modes/cpu0/power_collapse/suspend_enabled 1
-    write /sys/module/pm_8660/modes/cpu1/power_collapse/suspend_enabled 1
-    write /sys/module/pm_8660/modes/cpu0/standalone_power_collapse/suspend_enabled 1
-    write /sys/module/pm_8660/modes/cpu1/standalone_power_collapse/suspend_enabled 1
-    write /sys/module/pm_8660/modes/cpu0/power_collapse/idle_enabled 1
-    write /sys/module/pm_8660/modes/cpu1/power_collapse/idle_enabled 1
-    write /sys/module/pm_8660/modes/cpu0/standalone_power_collapse/idle_enabled 1
-    write /sys/module/pm_8660/modes/cpu1/standalone_power_collapse/idle_enabled 1
-    write /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate 50000
-    write /sys/devices/system/cpu/cpufreq/ondemand/up_threshold 90
-    write /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy 1
-    write /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor 4
-    chown system system /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy
-    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
-    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-    chown system system /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
-    chown system system /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
-    chown system system /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate
-    chown system system /sys/devices/system/cpu/cpu0/online
-    chown system system /sys/devices/system/cpu/cpu1/online
-    chmod 664 /sys/devices/system/cpu/cpu0/online
-    chmod 664 /sys/devices/system/cpu/cpu1/online
-    chown root system /sys/devices/system/cpu/mfreq
-    chmod 220 /sys/devices/system/cpu/mfreq
-    # Wake on volume
-    write /sys/keyboard/vol_wakeup 1
 
 on property:sys.radio.shutdown=true
     exec /system/bin/sh /system/etc/init.qcom.efs.sync.sh

@@ -153,6 +153,7 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 PRODUCT_PACKAGES += \
     fstab.pyramid \
     init.pyramid.rc \
+    init.qcom.power.rc \
     init.pyramid.usb.rc \
     ueventd.pyramid.rc \
     gps.pyramid
