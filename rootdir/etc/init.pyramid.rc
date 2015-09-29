@@ -18,14 +18,6 @@ on init
     export EMULATED_STORAGE_SOURCE /mnt/shell/emulated
     export EMULATED_STORAGE_TARGET /storage/emulated
 
-    # Secondary storage
-    mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
-    mkdir /storage/sdcard1 0700 root root
-    export SECONDARY_STORAGE /storage/sdcard1
-
-    # Secondary data (optional)
-    mkdir /data1 0771 root root
-
     # Support legacy paths
     symlink /storage/emulated/legacy /sdcard
     symlink /storage/emulated/legacy /mnt/sdcard
@@ -66,9 +58,6 @@ on fs
 
     # link widevine drm library path
     symlink /system/vendor/lib /vendor/lib
-
-    # run device's script
-    exec /init.pyramid.sh
 
     mount_all /remount.pyramid
 
@@ -279,11 +268,6 @@ service iprenew_bt-pan /system/bin/dhcpcd -n
 service iprenew_wlan0 /system/bin/dhcpcd -n
     disabled
     oneshot
-
-# external sdcard daemon running as media_rw (1023)
-service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
-    class late_start
-    disabled
 
 # virtual sdcard daemon running as media_rw (1023)
 service sdcard /system/bin/sdcard -u 1023 -g 1023 -l /data/media /mnt/shell/emulated

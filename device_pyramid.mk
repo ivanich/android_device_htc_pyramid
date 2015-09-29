@@ -156,7 +156,6 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.pyramid \
-    init.pyramid.sh \
     init.pyramid.rc \
     init.pyramid.usb.rc \
     ueventd.pyramid.rc \
