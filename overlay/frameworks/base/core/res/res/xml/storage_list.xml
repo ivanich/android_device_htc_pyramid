@@ -26,16 +26,8 @@
         android:emulated="true"
         android:primary="true"
         android:mtpReserve="100" />
-    <!-- external sdcard (non-removable due to optional usage of second partition for data) -->
-    <storage android:mountPoint="/storage/sdcard1"
-        android:storageDescription="@string/storage_sd_card"
-        android:primary="false"
-        android:emulated="false"
-        android:removable="false"
-        android:allowMassStorage="false"
-        android:maxFileSize="4096" />
     <!-- external USB OTG storage -->
-    <storage android:mountPoint="/storage/usb-otg"
+    <storage android:mountPoint="/storage/usbdisk"
         android:storageDescription="@string/storage_usb"
         android:removable="true" />
 </StorageList>
