@@ -1,3 +1,3 @@
 # Android fstab file.
-#<src>			<mnt_point>	<type>	<mnt_flags>						<fs_mgr_flags>
-/dev/block/mmcblk0p22	/system		ext4	remount,ro,noatime,barrier=0				wait
+#<src>                        <mnt_point>        <type>        <mnt_flags>                                                <fs_mgr_flags>
+/dev/block/mmcblk0p22         /system            ext4          remount,ro,noatime,barrier=0                                wait

@@ -5,27 +5,27 @@
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=240
 
-# radio
+# Radio
 PRODUCT_PROPERTY_OVERRIDES += \
     mobiledata.interfaces=rmnet0 \
     rild.libpath=/system/lib/libhtc_ril.so \
     ro.telephony.ril_class=HtcMsm8660RIL
 
-# wifi
+# WiFi
 PRODUCT_PROPERTY_OVERRIDES += \
- wifi.interface=wlan0
+    wifi.interface=wlan0
 
 # UMS
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp,adb \
+    persist.sys.usb.config=mtp \
     ro.vold.umsdirtyratio=20
 
-# tweaks
+# Tweaks
 PRODUCT_PROPERTY_OVERRIDES += \
-     dalvik.vm.dexopt-data-only=1 \
-     dalvik.vm.dexopt-flags=m=y \
-     windowsmgr.max_events_per_sec=300 \
-     pm.sleep_mode=1
+    windowsmgr.max_events_per_sec=300 \
+    pm.sleep_mode=1
+#    dalvik.vm.dexopt-data-only=1 \
+#    dalvik.vm.dexopt-flags=m=y \
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -38,11 +38,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=131072 \
     debug.egl.recordable.rgba8888=1
 
-## misc
+# Misc
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.setupwizard.enable_bypass=1 \
-    dalvik.vm.lockprof.threshold=500 \
     ro.com.google.locationfeatures=1
+#    dalvik.vm.lockprof.threshold=500 \
 
 # USB-OTG
 persist.sys.isUsbOtgEnabled=true
