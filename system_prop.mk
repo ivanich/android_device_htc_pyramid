@@ -24,8 +24,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     windowsmgr.max_events_per_sec=300 \
     pm.sleep_mode=1
-#    dalvik.vm.dexopt-data-only=1 \
-#    dalvik.vm.dexopt-flags=m=y \
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -42,7 +40,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.setupwizard.enable_bypass=1 \
     ro.com.google.locationfeatures=1
-#    dalvik.vm.lockprof.threshold=500 \
 
 # USB-OTG
 persist.sys.isUsbOtgEnabled=true

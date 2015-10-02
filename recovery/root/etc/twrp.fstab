@@ -4,6 +4,6 @@
 /recovery       emmc            /dev/block/mmcblk0p21
 /system         ext4            /dev/block/mmcblk0p23
 /data           f2fs            /dev/block/mmcblk1      length=-16384
-/cache          f2fs            /dev/block/mmcblk0p24
+/cache          ext4            /dev/block/mmcblk0p22
 /misc           emmc            /dev/block/mmcblk0p31
 /usbdisk        vfat            /dev/block/sda1         /dev/block/sda          flags=display="usbdisk";storage;wipeingui;removable

@@ -192,9 +192,9 @@ TW_NO_CPU_TEMP := true
 TW_NEW_ION_HEAP := true
 TW_INCLUDE_NTFS_3G := true
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
-TW_BACKUP_DATA_MEDIA := true
+TW_BACKUP_DATA_MEDIA := false
 
-# Dalvik/ART optimizations
+# Dalvik/ART
 WITH_DEXPREOPT := true
 WITH_DEXPREOPT_COMP := false
 WITH_DEXPREOPT_PIC := true

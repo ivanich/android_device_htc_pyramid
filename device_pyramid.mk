@@ -226,6 +226,7 @@ $(call inherit-product, device/htc/pyramid/media_a1026.mk)
 ## htc audio settings
 $(call inherit-product, device/htc/pyramid/media_htcaudio.mk)
 
+# setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
 
 # Discard inherited values and use our own instead.
