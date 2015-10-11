@@ -11,6 +11,7 @@ bin/netsharing
 bin/qmuxd
 bin/radish
 bin/rmt_storage
+bin/thermald
 
 # Audio
 lib/libacdbloader.so

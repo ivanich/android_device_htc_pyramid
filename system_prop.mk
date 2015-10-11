@@ -50,3 +50,7 @@ persist.sys.isUsbOtgEnabled=true
 # Scheduler
 PRODUCT_PROPERTY_OVERRIDES += \
     sys.io.scheduler=bfq
+
+# Thermal
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.thermal.monitor=true

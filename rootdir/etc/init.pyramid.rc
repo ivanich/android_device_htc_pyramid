@@ -218,6 +218,12 @@ service rmt_storage /system/bin/rmt_storage /dev/block/mmcblk0p26 /dev/block/mmc
     class core
     user root
 
+service thermald /system/bin/thermald
+    class core
+    user root
+    group root
+    disabled
+
 service wpa_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
     -e/data/misc/wifi/entropy.bin -g@android:wpa_wlan0
@@ -267,6 +273,9 @@ service fuse_usbdisk /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/usbdisk
 
 on property:init.svc.bootanim=stopped
     start qcom-post-boot
+
+on property:persist.thermal.monitor=true
+    start thermald
 
 on property:ro.hdmi.enable=true
     start hdmid

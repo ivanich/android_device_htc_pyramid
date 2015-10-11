@@ -55,6 +55,10 @@ PRODUCT_PACKAGES += \
     libdashplayer \
     libaudio-resampler
 
+# Thermal
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/thermald.conf:system/etc/thermald.conf
+
 # GPS
 PRODUCT_COPY_FILES += \
     device/common/gps/gps.conf_US_SUPL:system/etc/gps.conf
