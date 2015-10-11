@@ -7,7 +7,7 @@
 
 /dev/block/platform/msm_sdcc.1/by-name/boot      /boot         emmc	defaults						defaults
 /dev/block/platform/msm_sdcc.1/by-name/recovery  /recovery     emmc	defaults						defaults
-/dev/block/platform/msm_sdcc.1/by-name/misc      /misc         emmc     defaults						defaults
+/dev/block/platform/msm_sdcc.1/by-name/misc      /misc         emmc	defaults						defaults
 /dev/block/platform/msm_sdcc.1/by-name/devlog    /devlog       ext4	noatime,nosuid,nodev,barrier=0				wait
 /dev/block/platform/msm_sdcc.1/by-name/system    /system       ext4	rw,noatime,barrier=0					wait
 /dev/block/platform/msm_sdcc.1/by-name/cache     /cache        ext4	noatime,nosuid,nodev,barrier=0				wait
@@ -22,4 +22,4 @@
 /devices/platform/msm_hsusb_host.0/usb1*	auto	auto	defaults		voldmanaged=usbdisk:auto
 
 # ZRAM
-/dev/block/zram0				none 	swap 	defaults 		zramsize=268435456
+/dev/block/zram0				none 	swap	defaults		zramsize=134217728
