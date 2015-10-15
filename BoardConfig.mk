@@ -162,12 +162,6 @@ TARGET_RECOVERY_DEVICE_MODULES += chargeled
 BOARD_SEPOLICY_DIRS += \
     device/htc/pyramid/sepolicy
 
-BOARD_SEPOLICY_UNION += \
-    platform_app.te \
-    property_contexts \
-    healthd.te \
-    recovery.te
-
 # Filesystem
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
