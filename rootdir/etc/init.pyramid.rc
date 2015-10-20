@@ -8,6 +8,7 @@ on early-init
    write /sys/block/zram0/max_comp_streams 2
 
 on init
+    export LD_PRELOAD /system/lib/libhtc_symbols.so
     mkdir /devlog 0700 root root
     mkdir /mnt/media_rw/sdcard0 0700 media_rw media_rw
     mkdir /mnt/media_rw/usbdisk 0700 media_rw media_rw
