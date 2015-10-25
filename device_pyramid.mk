@@ -66,6 +66,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libhtc_symbols
 
+# Qcom
+PRODUCT_PACKAGES += \
+    libstlport
+
 # Graphics
 PRODUCT_PACKAGES += \
     copybit.msm8660 \
