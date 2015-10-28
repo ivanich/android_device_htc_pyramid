@@ -94,6 +94,7 @@ on boot
 
     # radio
     mkdir /data/radio 2770 radio radio
+    mkdir /dev/radio 2770 radio radio
 
     # liblights
     chown system system /sys/class/leds/green/brightness
