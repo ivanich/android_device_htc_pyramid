@@ -150,8 +150,6 @@ TARGET_RIL_VARIANT := caf
 BOARD_USES_LEGACY_MMAP := true
 BOARD_SUPPRESS_EMMC_WIPE := true
 
-# Use dlmalloc
-MALLOC_IMPL := dlmalloc
 
 # Recovery
 TARGET_RECOVERY_DEVICE_MODULES += chargeled
