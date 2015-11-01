@@ -16,10 +16,10 @@
 /dev/block/platform/msm_sdcc.1/by-name/userdata  /data         f2fs	rw,discard,nosuid,nodev,noatime,nodiratime,inline_xattr wait,check,encryptable=footer,length=-16384
 
 # SD card
-/devices/platform/msm_sdcc.3/mmc_host/mmc1*	auto	vfat	defaults		voldmanaged=sdcard0:auto,noemulatedsd
+/devices/platform/msm_sdcc.3/mmc_host/mmc1*	auto	auto	defaults		voldmanaged=sdcard0:auto,encryptable=userdata,noemulatedsd
 
 # USB storage
-/devices/platform/msm_hsusb_host.0/usb1*	auto	auto	defaults		voldmanaged=usbdisk:auto
+/devices/platform/msm_hsusb_host.0/usb1*	auto	auto	defaults		voldmanaged=usb:auto
 
 # ZRAM
 /dev/block/zram0				none 	swap	defaults		zramsize=134217728
