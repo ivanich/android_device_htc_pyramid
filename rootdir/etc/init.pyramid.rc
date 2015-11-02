@@ -212,7 +212,7 @@ service netmgrd /system/bin/netmgrd
     class main
 
 service qmuxd /system/bin/qmuxd
-    class main
+    class core
     user radio
     group radio audio bluetooth gps
 
