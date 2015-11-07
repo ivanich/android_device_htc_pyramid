@@ -32,6 +32,10 @@ extern "C" {
 #endif
 
 
+#ifndef RIL_QCOM_VERSION
+#define RIL_QCOM_VERSION 3
+#endif
+
 #if defined(ANDROID_SIM_COUNT_2)
 #define SIM_COUNT 2
 #elif defined(ANDROID_SIM_COUNT_3)
@@ -46,7 +50,11 @@ extern "C" {
 #define SIM_COUNT 1
 #endif
 
+#ifdef USE_RIL_VERSION_10
+#define RIL_VERSION 10
+#else
 #define RIL_VERSION 11     /* Current version */
+#endif
 #define RIL_VERSION_MIN 5 /* Minimum RIL_VERSION supported */
 
 #define CDMA_ALPHA_INFO_BUFFER_LENGTH 64
@@ -164,7 +172,8 @@ typedef enum {
     RADIO_TECH_HSPAP = 15, // HSPA+
     RADIO_TECH_GSM = 16, // Only supports voice
     RADIO_TECH_TD_SCDMA = 17,
-    RADIO_TECH_IWLAN = 18
+    RADIO_TECH_IWLAN = 18,
+    RADIO_TECH_LTE_CA = 19
 } RIL_RadioTechnology;
 
 typedef enum {
@@ -186,6 +195,7 @@ typedef enum {
     RAF_HSPAP = (1 << RADIO_TECH_HSPAP),
     RAF_GSM = (1 << RADIO_TECH_GSM),
     RAF_TD_SCDMA = (1 << RADIO_TECH_TD_SCDMA),
+    RAF_LTE_CA = (1 << RADIO_TECH_LTE_CA)
 } RIL_RadioAccessFamily;
 
 typedef enum {
@@ -238,7 +248,17 @@ typedef enum {
     PREF_NET_TYPE_LTE_GSM_WCDMA            = 9, /* LTE, GSM/WCDMA */
     PREF_NET_TYPE_LTE_CMDA_EVDO_GSM_WCDMA  = 10, /* LTE, CDMA, EvDo, GSM/WCDMA */
     PREF_NET_TYPE_LTE_ONLY                 = 11, /* LTE only */
-    PREF_NET_TYPE_LTE_WCDMA                = 12  /* LTE/WCDMA */
+    PREF_NET_TYPE_LTE_WCDMA                = 12,  /* LTE/WCDMA */
+    PREF_NET_TYPE_TD_SCDMA_ONLY            = 13, /* TD-SCDMA only */
+    PREF_NET_TYPE_TD_SCDMA_WCDMA           = 14, /* TD-SCDMA and WCDMA */
+    PREF_NET_TYPE_TD_SCDMA_LTE             = 15, /* TD-SCDMA and LTE */
+    PREF_NET_TYPE_TD_SCDMA_GSM             = 16, /* TD-SCDMA and GSM */
+    PREF_NET_TYPE_TD_SCDMA_GSM_LTE         = 17, /* TD-SCDMA,GSM and LTE */
+    PREF_NET_TYPE_TD_SCDMA_GSM_WCDMA       = 18, /* TD-SCDMA, GSM/WCDMA */
+    PREF_NET_TYPE_TD_SCDMA_WCDMA_LTE       = 19, /* TD-SCDMA, WCDMA and LTE */
+    PREF_NET_TYPE_TD_SCDMA_GSM_WCDMA_LTE   = 20, /* TD-SCDMA, GSM/WCDMA and LTE */
+    PREF_NET_TYPE_TD_SCDMA_GSM_WCDMA_CDMA_EVDO_AUTO  = 21, /* TD-SCDMA, GSM/WCDMA, CDMA and EvDo */
+    PREF_NET_TYPE_TD_SCDMA_LTE_CDMA_EVDO_GSM_WCDMA   = 22  /* TD-SCDMA, LTE, CDMA, EvDo GSM/WCDMA */
 } RIL_PreferredNetworkType;
 
 /* Source for cdma subscription */
@@ -383,6 +403,7 @@ typedef struct {
                                  via PCO(Protocol Configuration Option) for IMS client. */
 } RIL_Data_Call_Response_v9;
 
+#if (RIL_VERSION == 11)
 typedef struct {
     int             status;     /* A RIL_DataCallFailCause, 0 which is PDP_FAIL_NONE if no error */
     int             suggestedRetryTime; /* If status != 0, this fields indicates the suggested retry
@@ -418,6 +439,7 @@ typedef struct {
                                    Value <= 0 means network has either not sent a value or
                                    sent an invalid value */
 } RIL_Data_Call_Response_v11;
+#endif
 
 typedef enum {
     RADIO_TECH_3GPP = 1, /* 3GPP Technologies - GSM, WCDMA */
@@ -591,10 +613,53 @@ typedef struct {
 /* See RIL_REQUEST_LAST_CALL_FAIL_CAUSE */
 typedef enum {
     CALL_FAIL_UNOBTAINABLE_NUMBER = 1,
+    CALL_FAIL_NO_ROUTE_TO_DESTINATION = 3,
+    CALL_FAIL_CHANNEL_UNACCEPTABLE = 6,
+    CALL_FAIL_OPERATOR_DETERMINED_BARRING = 8,
     CALL_FAIL_NORMAL = 16,
     CALL_FAIL_BUSY = 17,
+    CALL_FAIL_NO_USER_RESPONDING = 18,
+    CALL_FAIL_NO_ANSWER_FROM_USER = 19,
+    CALL_FAIL_CALL_REJECTED = 21,
+    CALL_FAIL_NUMBER_CHANGED = 22,
+    CALL_FAIL_PREEMPTION = 25,
+    CALL_FAIL_DESTINATION_OUT_OF_ORDER = 27,
+    CALL_FAIL_INVALID_NUMBER_FORMAT = 28,
+    CALL_FAIL_FACILITY_REJECTED = 29,
+    CALL_FAIL_RESP_TO_STATUS_ENQUIRY = 30,
+    CALL_FAIL_NORMAL_UNSPECIFIED = 31,
     CALL_FAIL_CONGESTION = 34,
+    CALL_FAIL_NETWORK_OUT_OF_ORDER = 38,
+    CALL_FAIL_TEMPORARY_FAILURE = 41,
+    CALL_FAIL_SWITCHING_EQUIPMENT_CONGESTION = 42,
+    CALL_FAIL_ACCESS_INFORMATION_DISCARDED = 43,
+    CALL_FAIL_REQUESTED_CIRCUIT_OR_CHANNEL_NOT_AVAILABLE = 44,
+    CALL_FAIL_RESOURCES_UNAVAILABLE_OR_UNSPECIFIED = 47,
+    CALL_FAIL_QOS_UNAVAILABLE = 49,
+    CALL_FAIL_REQUESTED_FACILITY_NOT_SUBSCRIBED = 50,
+    CALL_FAIL_INCOMING_CALLS_BARRED_WITHIN_CUG = 55,
+    CALL_FAIL_BEARER_CAPABILITY_NOT_AUTHORIZED = 57,
+    CALL_FAIL_BEARER_CAPABILITY_UNAVAILABLE = 58,
+    CALL_FAIL_SERVICE_OPTION_NOT_AVAILABLE = 63,
+    CALL_FAIL_BEARER_SERVICE_NOT_IMPLEMENTED = 65,
     CALL_FAIL_ACM_LIMIT_EXCEEDED = 68,
+    CALL_FAIL_REQUESTED_FACILITY_NOT_IMPLEMENTED = 69,
+    CALL_FAIL_ONLY_DIGITAL_INFORMATION_BEARER_AVAILABLE = 70,
+    CALL_FAIL_SERVICE_OR_OPTION_NOT_IMPLEMENTED = 79,
+    CALL_FAIL_INVALID_TRANSACTION_IDENTIFIER = 81,
+    CALL_FAIL_USER_NOT_MEMBER_OF_CUG = 87,
+    CALL_FAIL_INCOMPATIBLE_DESTINATION = 88,
+    CALL_FAIL_INVALID_TRANSIT_NW_SELECTION = 91,
+    CALL_FAIL_SEMANTICALLY_INCORRECT_MESSAGE = 95,
+    CALL_FAIL_INVALID_MANDATORY_INFORMATION = 96,
+    CALL_FAIL_MESSAGE_TYPE_NON_IMPLEMENTED = 97,
+    CALL_FAIL_MESSAGE_TYPE_NOT_COMPATIBLE_WITH_PROTOCOL_STATE = 98,
+    CALL_FAIL_INFORMATION_ELEMENT_NON_EXISTENT = 99,
+    CALL_FAIL_CONDITIONAL_IE_ERROR = 100,
+    CALL_FAIL_MESSAGE_NOT_COMPATIBLE_WITH_PROTOCOL_STATE = 101,
+    CALL_FAIL_RECOVERY_ON_TIMER_EXPIRED = 102,
+    CALL_FAIL_PROTOCOL_ERROR_UNSPECIFIED = 111,
+    CALL_FAIL_INTERWORKING_UNSPECIFIED = 127,
     CALL_FAIL_CALL_BARRED = 240,
     CALL_FAIL_FDN_BLOCKED = 241,
     CALL_FAIL_IMSI_UNKNOWN_IN_VLR = 242,
@@ -625,6 +690,7 @@ typedef struct {
 typedef enum {
     PDP_FAIL_NONE = 0, /* No error, connection ok */
 
+    PDP_FAIL_ACTIVATION_NOT_ALLOWED  = 0x07,
     /* an integer cause code defined in TS 24.008
        section 6.1.3.1.3 or TS 24.301 Release 8+ Annex B.
        If the implementation does not have access to the exact cause codes,
