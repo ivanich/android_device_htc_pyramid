@@ -8,6 +8,7 @@ on early-init
    write /sys/block/zram0/max_comp_streams 2
 
 on init
+    export LD_SHIM_LIBS "/system/lib/hw/camera.vendor.msm8660.so|libshim_camera.so:/system/lib/hw/sensors.pyramid.so|libshim_camera.so"
     # By default, primary storage is physical
     setprop ro.vold.primary_physical 1
 
