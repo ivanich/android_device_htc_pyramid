@@ -9,6 +9,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     mobiledata.interfaces=rmnet0 \
     rild.libpath=/system/lib/libhtc_ril.so \
+    ro.ril.telephony.mqanelements=5 \
     ro.telephony.ril_class=HtcMsm8660RIL
 
 # wifi
