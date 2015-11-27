@@ -230,6 +230,14 @@
          format is UMTS|LTE|... -->
     <string name="config_radio_access_family">GSM|WCDMA</string>
 
+    <!-- Ultrasound support for Mic/speaker path -->
+    <!-- Whether the default microphone audio source supports near-ultrasound frequencies
+         (range of 18 - 21 kHz). -->
+    <bool name="config_supportMicNearUltrasound">false</bool>
+    <!-- Whether the default speaker audio output path supports near-ultrasound frequencies
+         (range of 18 - 21 kHz). -->
+    <bool name="config_supportSpeakerNearUltrasound">false</bool>
+
     <!-- Enable the option to check proximity sensor when deciding whether to turn the screen on
          NOTE ! - Enable for devices that have a fast response proximity sensor -->
 <!--    <bool name="config_proximityCheckOnWake">true</bool> -->
