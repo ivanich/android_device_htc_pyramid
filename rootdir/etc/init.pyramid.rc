@@ -9,8 +9,6 @@ on early-init
 
 on init
     export LD_SHIM_LIBS "/system/lib/hw/camera.vendor.msm8660.so|libshim_camera.so:/system/lib/hw/sensors.pyramid.so|libshim_camera.so"
-    # By default, primary storage is physical
-    setprop ro.vold.primary_physical 1
 
     export LD_PRELOAD /system/lib/libhtc_symbols.so
     mkdir /devlog 0700 root root
