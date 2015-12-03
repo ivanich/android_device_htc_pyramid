@@ -8,7 +8,7 @@ on early-init
    write /sys/block/zram0/max_comp_streams 2
 
 on init
-    export LD_SHIM_LIBS "/system/lib/hw/camera.vendor.msm8660.so|libshim_camera.so:/system/lib/hw/sensors.pyramid.so|libshim_camera.so"
+    export LD_SHIM_LIBS "/system/lib/hw/camera.vendor.msm8660.so|libshim_camera.so"
 
     export LD_PRELOAD /system/lib/libhtc_symbols.so
     mkdir /devlog 0700 root root
