@@ -110,10 +110,6 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PACKAGES += \
     hdmid
 
-# USB
-PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory
-
 # Filesystem management tools
 PRODUCT_PACKAGES += \
     make_ext4fs \
