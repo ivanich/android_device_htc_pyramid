@@ -1,12 +1,11 @@
-# mount point fstype device [device2] [length=]
+# device						mount_point	fstype	mount_flags				fs_flags	twrp_flags
 
-/boot			emmc		/dev/block/mmcblk0p20
-/recovery		emmc		/dev/block/mmcblk0p21
-/system			ext4		/dev/block/mmcblk0p22
-/data			auto		/dev/block/mmcblk0p23	flags=encryptable=/dev/block/platform/msm_sdcc.1/by-name/extra
-/cache			auto		/dev/block/mmcblk0p24
-/misc			emmc		/dev/block/mmcblk0p31
-/sdcard			auto		/dev/block/mmcblk1p2	/dev/block/mmcblk1	flags=display="MicroSD card Adopted";storage;wipeingui;removable
-/sdcard1                auto            /dev/block/mmcblk1p1    /dev/block/mmcblk1      flags=display="MicroSD card Legacy";storage;wipeingui;removable
-/usb-otg		auto		/dev/block/sda1		/dev/block/sda		flags=display="USB OTG";storage;wipeingui;removable
-
+/dev/block/platform/msm_sdcc.1/by-name/boot		/boot		emmc	defaults				defaults
+/dev/block/platform/msm_sdcc.1/by-name/recovery		/recovery	emmc	defaults				defaults
+/dev/block/platform/msm_sdcc.1/by-name/system		/system		ext4	defaults				defaults
+/dev/block/platform/msm_sdcc.1/by-name/userdata		/data		auto	nosuid,nodev,noatime,nodiratime		defaults	twrp=encryptable=/dev/block/platform/msm_sdcc.1/by-name/extra
+/dev/block/platform/msm_sdcc.1/by-name/cache		/cache		auto	nosuid,nodev,noatime,nodiratime		defaults
+/dev/block/platform/msm_sdcc.1/by-name/misc		/misc		emmc	defaults				defaults
+/dev/block/mmcblk1p2					/sdcard		auto	defaults				defaults	twrp=display="MicroSD card Adopted";storage;wipeingui;removable
+/dev/block/mmcblk1p1					/sdcard1	auto	defaults				defaults	twrp=display="MicroSD card Legacy";storage;wipeingui;removable
+/dev/block/sda1						/usb-otg	auto	defaults				defaults	twrp=display="USB OTG";storage;wipeingui;removable

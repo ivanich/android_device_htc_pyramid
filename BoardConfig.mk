@@ -180,5 +180,7 @@ HAVE_SELINUX := true
 TW_NO_CPU_TEMP := true
 TW_NEW_ION_HEAP := true
 TW_INCLUDE_NTFS_3G := true
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "usb-otg"
+TW_EXTERNAL_STORAGE_PATH := "/usb-otg"
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
