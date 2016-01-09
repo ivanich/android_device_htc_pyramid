@@ -64,7 +64,7 @@ PRODUCT_COPY_FILES += \
     device/common/gps/gps.conf_US_SUPL:system/etc/gps.conf
 
 PRODUCT_PACKAGES += \
-    libhtc_symbols \
+    libshim_log \
     libshim_camera
 
 # Qcom
