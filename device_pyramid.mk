@@ -152,6 +152,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
+# Camera
+PRODUCT_PACKAGES += \
+    Snap
+
 # Camera wrapper
 PRODUCT_PACKAGES += \
     camera.msm8660
