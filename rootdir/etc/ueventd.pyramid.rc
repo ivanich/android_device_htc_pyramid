@@ -34,9 +34,9 @@
 # HTC
 /dev/smd0                 0640   radio     radio
 /dev/smd4                 0640   radio     radio
-/dev/smd3                 0660   bluetooth      bluetooth
-/dev/smd2                 0660   bluetooth      bluetooth
-/dev/smd7                 0640   radio      radio
+/dev/smd3                 0660   bluetooth  bluetooth
+/dev/smd2                 0660   bluetooth  bluetooth
+/dev/smd7                 0660   bluetooth  bluetooth
 /dev/smdcntl0             0640   radio      radio
 /dev/smdcntl1             0640   radio      radio
 /dev/smdcntl2             0640   radio      radio
