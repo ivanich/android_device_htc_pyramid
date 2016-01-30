@@ -10,10 +10,10 @@
 /dev/block/platform/msm_sdcc.1/by-name/misc      /misc         emmc	defaults								defaults
 /dev/block/platform/msm_sdcc.1/by-name/devlog    /devlog       ext4	noatime,nosuid,nodev,barrier=0						wait
 /dev/block/platform/msm_sdcc.1/by-name/system    /system       ext4	rw,noatime,barrier=0							wait
+/dev/block/platform/msm_sdcc.1/by-name/cache     /cache        ext4     noatime,nosuid,nodev,barrier=0,journal_async_commit                     wait,check,formattable
 /dev/block/platform/msm_sdcc.1/by-name/cache     /cache        f2fs     rw,discard,nosuid,nodev,noatime,nodiratime,inline_xattr 		wait,check,formattable
-/dev/block/platform/msm_sdcc.1/by-name/cache     /cache        ext4	noatime,nosuid,nodev,barrier=0,journal_async_commit			wait,check,formattable
+/dev/block/platform/msm_sdcc.1/by-name/userdata  /data         ext4     noatime,nosuid,nodev,noauto_da_alloc,barrier=0,journal_async_commit     wait,check,formattable,encryptable=/dev/block/platform/msm_sdcc.1/by-name/extra
 /dev/block/platform/msm_sdcc.1/by-name/userdata  /data         f2fs     rw,discard,nosuid,nodev,noatime,nodiratime,inline_xattr 		wait,check,formattable,encryptable=/dev/block/platform/msm_sdcc.1/by-name/extra
-/dev/block/platform/msm_sdcc.1/by-name/userdata  /data         ext4	noatime,nosuid,nodev,noauto_da_alloc,barrier=0,journal_async_commit	wait,check,formattable,encryptable=/dev/block/platform/msm_sdcc.1/by-name/extra
 
 # SD card
 /devices/platform/msm_sdcc.3/mmc_host/mmc1*	auto	auto	defaults		voldmanaged=sdcard0:auto,encryptable=userdata,noemulatedsd
