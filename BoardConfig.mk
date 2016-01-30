@@ -28,7 +28,7 @@ LOCAL_PATH := device/htc/pyramid
 TARGET_SPECIFIC_HEADER_PATH += device/htc/pyramid/include
 
 BOARD_VENDOR := htc
-
+USE_CLANG_PLATFORM_BUILD := true
 
 # Bootloader
 TARGET_NO_BOOTLOADER := true
