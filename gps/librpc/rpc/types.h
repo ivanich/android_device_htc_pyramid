@@ -74,6 +74,7 @@ extern "C" {
 #include <inttypes.h>
 #include <string.h>
 #include <pthread.h>
+#include <stdlib.h>
 
 typedef int bool_t; /* This has to be a long, as it is used for XDR boolean too, which is a 4-byte value */
 typedef unsigned long rpcprog_t;
