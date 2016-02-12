@@ -29,4 +29,7 @@
     for devices where the java drawing of round rects may be slow -->
     <bool name="config_recents_use_hardware_layers">true</bool>
 
+    <!-- Allow Flashlight service to use wakelock -->
+    <bool name="flashlight_use_wakelock">true</bool>
+
 </resources>
