@@ -20,8 +20,10 @@ LOCAL_SRC_FILES := \
      gui/SensorManager.cpp \
      MemoryHeapPmem.cpp \
      MemoryBase.c \
-     VectorImpl.c
+     SharedBuffer.cpp \
+     VectorImpl.cpp
 
+LOCAL_C_INCLUDES += external/safe-iop/include
 LOCAL_SHARED_LIBRARIES := liblog libcutils libgui libbinder libutils
 LOCAL_MODULE := libshim_camera
 LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
