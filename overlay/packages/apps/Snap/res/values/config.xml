@@ -17,6 +17,9 @@
 <!-- Camera app resources that may need to be customized
      for different hardware or product builds. -->
 <resources>
+
+    <string name="pref_camera_jpegquality_default" translatable="false">95</string>
+
     <!-- Restart preview for back camera onPictureTaken -->
     <bool name="back_camera_restart_preview_onPictureTaken">true</bool>
 
