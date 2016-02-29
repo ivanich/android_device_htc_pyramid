@@ -18,9 +18,6 @@ include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := \
      gui/SensorManager.cpp \
-     ui/GraphicBuffer.cpp \
-     ui/GraphicBufferAllocator.cpp \
-     ui/GraphicBufferMapper.cpp \
      MemoryHeapPmem.cpp \
      MemoryBase.c \
      SharedBuffer.cpp \
