@@ -74,7 +74,7 @@ BOARD_CAMERA_FRONT_VGA := true
 # FM Radio
 # 4.2 -> commenting these for audio policy
 #BOARD_HAVE_QCOM_FM := true
-#QCOM_FM_ENABLED := true
+QCOM_FM_ENABLED := true
 #COMMON_GLOBAL_CFLAGS += -DQCOM_FM_ENABLED
 #BOARD_HAVE_FM_RADIO := true
 #AUDIO_FEATURE_ENABLED_FM := true
