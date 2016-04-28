@@ -58,6 +58,7 @@
 /dev/sdioctl8             0640   radio      radio
 /dev/rmnet_mux_ctrl       0640   radio      radio
 /dev/qemu_trace           0666   system     system
+/dev/msm_camera/*         0660   system     camera
 /dev/gemini0              0660   system     camera
 /dev/rawchip0             0660   system     system
 /dev/mdm                  0660   system     system
