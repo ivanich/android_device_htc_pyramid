@@ -84,6 +84,10 @@ PRODUCT_PACKAGES += \
     libqdutils \
     libtilerenderer
 
+# Gello
+PRODUCT_PACKAGES += \
+    Gello
+
 # Power
 PRODUCT_PACKAGES += \
     power.msm8660
