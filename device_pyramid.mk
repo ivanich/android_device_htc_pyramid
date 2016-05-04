@@ -39,7 +39,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
-    frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml
+    frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
+    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
 # System properties
 -include $(LOCAL_PATH)/system_prop.mk
@@ -95,7 +96,6 @@ PRODUCT_PACKAGES += \
 # OMX
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
-    libdashplayer \
     libdivxdrmdecrypt \
     libmm-omxcore \
     libOmxCore \
@@ -106,11 +106,7 @@ PRODUCT_PACKAGES += \
     libstagefrighthw \
     libOmxQcelp13Enc \
     libOmxEvrcEnc \
-    libOmxAmrEnc \
-    qcmediaplayer
-
-PRODUCT_BOOT_JARS += \
-    qcmediaplayer
+    libOmxAmrEnc
 
 # HDMI
 PRODUCT_PACKAGES += \
@@ -223,10 +219,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/dsp/soundimage/Sound_Recording.txt:system/etc/soundimage/Sound_Recording.txt \
     $(LOCAL_PATH)/dsp/soundimage/Sound_Beats.txt:system/etc/soundimage/Sound_Beats.txt \
     $(LOCAL_PATH)/dsp/soundimage/Sound_Rec_Portrait.txt:system/etc/soundimage/Sound_Rec_Portrait.txt
-
-# Permissions
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
 # Bluetooth firmware
 $(call inherit-product, device/htc/pyramid/bcm_hcd.mk)
