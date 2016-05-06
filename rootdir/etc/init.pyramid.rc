@@ -13,16 +13,11 @@ on init
     mkdir /devlog 0700 root root
 
 
-# Support legacy paths
-    symlink /sdcard /mnt/sdcard
-    symlink /sdcard /storage/sdcard0
-
     setprop ro.usb.idproduct.ums 0c86
     setprop ro.usb.idproduct.rndis 0c86
     setprop ro.usb.idproduct.mtp 0f87
     setprop ro.usb.idproduct.mtp_adb 0f87
     setprop ro.usb.idproduct.ptp 0f87
-
 
 on fs
 
@@ -51,6 +46,11 @@ on fs
     symlink /system/vendor/lib /vendor/lib
 
     mount_all /remount.pyramid
+
+on post-fs
+    # Support legacy paths
+    symlink /sdcard /mnt/sdcard
+    symlink /sdcard /storage/sdcard0
 
 on post-fs-data
     # double check the perms and set owner
