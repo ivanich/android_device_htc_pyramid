@@ -113,7 +113,7 @@ static char *camera_fixup_getparams(int id, const char *settings)
     params.set(android::CameraParameters::KEY_FACE_DETECTION, "off");
     params.set(android::CameraParameters::KEY_VIDEO_SNAPSHOT_SUPPORTED, "false");
     /* Disable denoise */
-    params.set(android::CameraParameters::KEY_SUPPORTED_DENOISE, "off");
+    params.remove(android::CameraParameters::KEY_SUPPORTED_DENOISE);
     params.set("scene-detect", "on");
 
     /* Set correct caf-focus-mode */ 
@@ -158,9 +158,9 @@ static char *camera_fixup_setparams(int id, const char *settings)
     params.set(android::CameraParameters::KEY_FACE_DETECTION, "off");
     params.set(android::CameraParameters::KEY_VIDEO_SNAPSHOT_SUPPORTED, "false");
     /* Disable denoise */
-    params.set(android::CameraParameters::KEY_SUPPORTED_DENOISE, "off");
+    params.remove(android::CameraParameters::KEY_SUPPORTED_DENOISE);
     params.set("scene-detect", "on");
-    
+
     /* Set correct caf-focus-mode */
     const char* focusAreas = params.get(android::CameraParameters::KEY_FOCUS_AREAS);
 
