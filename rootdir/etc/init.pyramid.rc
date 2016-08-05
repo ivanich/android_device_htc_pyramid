@@ -233,8 +233,10 @@ service wpa_supplicant /system/bin/wpa_supplicant \
     oneshot
 
 service p2p_supplicant /system/bin/wpa_supplicant \
-    -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf -N \
+    -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
+    -I/system/etc/wifi/wpa_supplicant_overlay.conf -N \
     -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf \
+    -I/system/etc/wifi/p2p_supplicant_overlay.conf \
     -puse_p2p_group_interface=1 -e/data/misc/wifi/entropy.bin \
     -g@android:wpa_wlan0
     class main
@@ -243,10 +245,10 @@ service p2p_supplicant /system/bin/wpa_supplicant \
     oneshot
 
 service dhcpcd_wlan0 /system/bin/dhcpcd -ABKL
-    disabled
-    oneshot
+	disabled
+	oneshot
 
-service dhcpcd_p2p /system/bin/dhcpcd -aABKL
+service dhcpcd_p2p /system/bin/dhcpcd -ABKL
 	disabled
 	oneshot
 
@@ -261,10 +263,17 @@ service iprenew_bt-pan /system/bin/dhcpcd -n
 service iprenew_wlan0 /system/bin/dhcpcd -n
 	disabled
 	oneshot
-# wifi--
+
+service iprenew_p2p /system/bin/dhcpcd -n
+	disabled
+	oneshot
+
 
 on property:init.svc.bootanim=stopped
     start qcom-post-boot
+
+on property:init.svc.wpa_supplicant=stopped
+    stop dhcpcd
 
 on property:persist.thermal.monitor=true
     start thermald
