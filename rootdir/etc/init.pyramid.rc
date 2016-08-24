@@ -49,7 +49,6 @@ on fs
 
 on post-fs
     # Support legacy paths
-    symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
 
 on post-fs-data
