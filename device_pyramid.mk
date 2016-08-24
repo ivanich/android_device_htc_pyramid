@@ -124,7 +124,6 @@ PRODUCT_PACKAGES += \
 
 # WiFi
 PRODUCT_PACKAGES += \
-    dhcpcd.conf \
     hostapd \
     hostapd_default.conf \
     wpa_supplicant \
