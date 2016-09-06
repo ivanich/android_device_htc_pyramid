@@ -130,7 +130,7 @@ TARGET_HAS_NO_BLUE_LED := true
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/htc/pyramid/bluetooth/include
-BOARD_BLUEDROID_VENDOR_CONF := device/htc/pyramid/bluetooth/vnd_pyramid.txt
+BOARD_CUSTOM_BT_CONFIG := device/htc/pyramid/bluetooth/vnd_pyramid.txt
 BOARD_BLUETOOTH_USES_HCIATTACH_PROPERTY := false
 
 # Bluetooth/Wifi
