@@ -18,6 +18,9 @@
 -->
 
 <MediaCodecs>
+    <Settings>
+        <Setting name="max-video-encoder-input-buffers" value="11" />
+    </Settings>
     <Encoders>
         <MediaCodec name="OMX.qcom.audio.encoder.evrc" type="audio/evrc" >
             <Quirk name="requires-allocate-on-input-ports" />
