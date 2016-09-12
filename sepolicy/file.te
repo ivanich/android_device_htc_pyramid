@@ -1,3 +1,0 @@
-type camera_sysfs, fs_type, sysfs_type;
-type vibeamp_sysfs, fs_type, sysfs_type;
-type volwake_sysfs, fs_type, sysfs_type;

@@ -1,7 +1,0 @@
-# For detect_key
-recovery_only(`
-  allow healthd input_device:chr_file write;
-  allow healthd misc_partition:blk_file { read write open };
-  allow healthd block_device:dir search;
-  allow healthd powerctl_prop:property_service set;
-')
