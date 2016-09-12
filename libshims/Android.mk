@@ -20,7 +20,6 @@ LOCAL_SRC_FILES := \
      gui/SensorManager.cpp \
      MemoryHeapPmem.cpp \
      MemoryBase.c \
-     SharedBuffer.cpp \
      VectorImpl.cpp
 
 LOCAL_C_INCLUDES += \
