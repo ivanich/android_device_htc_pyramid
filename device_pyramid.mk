@@ -133,6 +133,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     bt_vendor.conf
 
+# Healthd
+PRODUCT_PACKAGES += \
+    healthd
+
 # Media configuration
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
