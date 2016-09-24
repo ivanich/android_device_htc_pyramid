@@ -1,1 +1,2 @@
 allow radio unlabeled:file { getattr read open };
+allow radio net_radio_prop:property_service set;
