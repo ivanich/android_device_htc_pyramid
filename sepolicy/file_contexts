@@ -18,7 +18,6 @@
 /dev/codec_aic3254                                     u:object_r:audio_device:s0
 
 /dev/ttyHSL2                                           u:object_r:cir_device:s0
-/dev/rmt_storage                                       u:object_r:rmt_device:s0
 
 # Modem
 /dev/block/mmcblk0p17                                  u:object_r:modem_efs_partition_device:s0
