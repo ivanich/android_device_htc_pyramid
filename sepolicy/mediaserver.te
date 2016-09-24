@@ -1,0 +1,7 @@
+allow mediaserver shell_data_file:dir search;
+
+# Unsure what mediaserver is reaching out to here
+allow mediaserver mediaserver:netlink_kobject_uevent_socket create_socket_perms;
+
+# Unsure what mediaserver is reaching out to here
+allow mediaserver system_server:unix_stream_socket { read write };

@@ -1,0 +1,11 @@
+allow untrusted_app unlabeled:file { open execute getattr read };
+allow untrusted_app unlabeled:file { rename write setattr lock unlink append };
+allow untrusted_app unlabeled:dir { read open search getattr rmdir };
+allow untrusted_app system_app_data_file:dir { getattr search };
+allow untrusted_app system_app_data_file:lnk_file read;
+allow untrusted_app bluetooth_data_file:dir { getattr search };
+allow untrusted_app bluetooth_data_file:lnk_file read;
+allow untrusted_app radio_data_file:dir { getattr search };
+allow untrusted_app radio_data_file:lnk_file read;
+allow untrusted_app debuggerd_exec:file { read getattr };
+allow untrusted_app sysfs_thermal:dir search;

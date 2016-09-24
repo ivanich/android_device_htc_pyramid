@@ -1,0 +1,3 @@
+allow sysinit self:capability dac_override;
+allow sysinit app_data_file:dir search;
+allow sysinit app_data_file:file { read open getattr execute_no_trans ioctl };

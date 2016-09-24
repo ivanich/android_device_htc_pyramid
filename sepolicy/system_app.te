@@ -1,0 +1,12 @@
+# for 'Settings' access to sysfs
+allow system_app vibeamp_sysfs:file rw_file_perms;
+allow system_app vibeamp_sysfs:dir { search };
+
+allow system_app volwake_sysfs:file rw_file_perms;
+allow system_app volwake_sysfs:dir { search };
+
+allow system_app cir_device:chr_file rw_file_perms;
+allow system_app shell_data_file:dir search;
+
+allow system_app unlabeled:dir search;
+allow system_app unlabeled:file { open read getattr rename unlink };

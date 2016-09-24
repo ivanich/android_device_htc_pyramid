@@ -155,6 +155,11 @@ TARGET_NO_SD_ADOPT_ENCRYPTION := true
 # Recovery
 TARGET_RECOVERY_DEVICE_MODULES += chargeled
 
+# SELinux
+-include device/qcom/sepolicy/sepolicy.mk
+
+BOARD_SEPOLICY_DIRS += \
+    device/htc/pyramid/sepolicy
 
 # Filesystem
 TARGET_USERIMAGES_USE_EXT4 := true

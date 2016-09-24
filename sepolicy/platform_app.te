@@ -1,0 +1,3 @@
+allow platform_app unlabeled:dir search;
+allow platform_app unlabeled:file { open getattr read };
+

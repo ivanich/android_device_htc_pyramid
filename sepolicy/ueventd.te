@@ -1,0 +1,1 @@
+allow ueventd rmt_device:chr_file { open read write ioctl create setattr };

@@ -1,0 +1,2 @@
+allow rmt_device tmpfs:filesystem associate;
+allow rmt_device tmpfs:chr_file { open read write ioctl };

@@ -1,0 +1,5 @@
+type rfkill_device, dev_type;
+type timerirq_dev, dev_type;
+type cir_device, dev_type;
+type rmt_device, dev_type;
+type oncrpc_device, dev_type;

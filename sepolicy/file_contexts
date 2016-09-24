@@ -1,0 +1,46 @@
+
+# Bluetooth
+/dev/rfkill                                            u:object_r:rfkill_device:s0
+
+# Camera
+/dev/gemini.*                                          u:object_r:camera_device:s0
+/dev/msm_camera/.*                                     u:object_r:camera_device:s0
+/data/cam_socket.*                                     u:object_r:camera_socket:s0
+/sys/camera_htccallback/htccallback                    u:object_r:camera_sysfs:s0
+
+# Graphics
+/dev/kgsl-2d.*                                         u:object_r:gpu_device:s0
+/dev/msm_rotator                                       u:object_r:gpu_device:s0
+
+# Audio
+/dev/htc-acoustic                                      u:object_r:audio_device:s0
+/dev/tpa2051d3                                         u:object_r:audio_device:s0
+/dev/codec_aic3254                                     u:object_r:audio_device:s0
+
+/dev/ttyHSL2                                           u:object_r:cir_device:s0
+/dev/rmt_storage                                       u:object_r:rmt_device:s0
+
+# Modem
+/dev/block/mmcblk0p17                                  u:object_r:modem_efs_partition_device:s0
+/dev/block/mmcblk0p18                                  u:object_r:modem_efs_partition_device:s0
+/dev/block/mmcblk0p19                                  u:object_r:modem_efs_partition_device:s0
+/dev/block/mmcblk0p26                                  u:object_r:modem_efs_partition_device:s0
+/dev/block/mmcblk0p27                                  u:object_r:modem_efs_partition_device:s0
+/dev/ttyUSB0                                           u:object_r:radio_device:s0
+
+/dev/oncrpc/.*                                         u:object_r:oncrpc_device:s0
+
+# Mpdecision
+/data/system/default_values                            u:object_r:mpctl_data_file:s0
+/dev/socket/mpctl                                      u:object_r:mpctl_socket:s0
+
+# Sensors
+/dev/cm3602                                            u:object_r:sensors_device:s0
+/dev/lightsensor                                       u:object_r:sensors_device:s0
+
+# Timer
+/dev/timerirq                                          u:object_r:timerirq_dev:s0
+
+# CMHW
+/sys/keyboard/vol_wakeup                               u:object_r:volwake_sysfs:s0
+/sys/class/timed_output/vibrator/voltage_level         u:object_r:vibeamp_sysfs:s0

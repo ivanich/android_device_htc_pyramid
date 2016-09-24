@@ -1,0 +1,3 @@
+allow mm-qcamerad camera_socket:sock_file setattr;
+allow mm-qcamerad camera_sysfs:file { write open getattr };
+type_transition mm-qcamerad system_data_file:sock_file camera_socket "cam_socket0";

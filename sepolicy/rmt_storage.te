@@ -1,0 +1,14 @@
+typeattribute rmt_storage rmt_placeholder;
+allow rmt_storage kmem_device:chr_file { open read write };
+allow rmt_storage modem_efs_partition_device:blk_file rw_file_perms;
+allow rmt_storage self:capability { net_raw setpcap sys_rawio };
+allow rmt_storage tmpfs:chr_file { open read write ioctl };
+allow rmt_storage tmpfs:blk_file { open read write };
+allow rmt_storage self:process execmem;
+allow rmt_storage rmt_device:chr_file { read write open ioctl};
+
+# rmt_storage - rmt_storage daemon
+allow rmt_storage rpmb_device:blk_file { open read };
+allow rmt_storage ssd_device:blk_file { open read write };
+unix_socket_connect(rmt_storage, property, init)
+allow rmt_storage ctl_default_prop:property_service set;
