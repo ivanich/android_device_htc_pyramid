@@ -190,11 +190,6 @@ service adc_fixup /system/bin/cat /sys/devices/platform/msm_adc/batt_id
     class main
     oneshot
 
-service hdmid /system/bin/hdmid
-    class main
-    socket hdmid stream 0660 root system graphics
-    disabled
-
 service htcbatt /system/bin/htcbatt
     class main
     user root
