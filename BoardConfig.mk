@@ -24,7 +24,6 @@
 # variant, so that it gets overwritten by the parent (which goes
 # against the traditional rules of inheritance).
 
-LOCAL_PATH := device/htc/pyramid
 TARGET_SPECIFIC_HEADER_PATH += device/htc/pyramid/include
 
 BOARD_VENDOR := htc
@@ -80,7 +79,7 @@ QCOM_FM_ENABLED := true
 #AUDIO_FEATURE_ENABLED_FM := true
 
 # GPS
-TARGET_GPS_HAL_PATH := $(LOCAL_PATH)/gps
+TARGET_GPS_HAL_PATH := device/htc/pyramid/gps
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 
 
@@ -140,10 +139,10 @@ BOARD_BLUETOOTH_USES_HCIATTACH_PROPERTY := false
 -include device/htc/pyramid/bcmdhd.mk
 
 # Hardware tunables
-#BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw
+#BOARD_HARDWARE_CLASS := device/htc/pyramid/cmhw
 
 # RIL
-BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril
+BOARD_RIL_CLASS := ../../../device/htc/pyramid/ril
 
 # Misc
 BOARD_USES_LEGACY_MMAP := true
