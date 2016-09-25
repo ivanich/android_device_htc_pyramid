@@ -137,6 +137,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     healthd
 
+# Offmode charger
+# Use cm images if available, aosp ones otherwise
+PRODUCT_PACKAGES += \
+    charger_res_images \
+    cm_charger_res_images
+
 # Media configuration
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
