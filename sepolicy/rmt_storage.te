@@ -1,0 +1,3 @@
+typeattribute rmt_storage rmt_placeholder;
+allow rmt_storage kmem_device:chr_file { open read write };
+allow rmt_storage self:capability { net_raw setpcap sys_rawio };
