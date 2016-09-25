@@ -114,7 +114,6 @@ BOARD_KERNEL_PAGE_SIZE := 2048
 BOARD_KERNEL_CMDLINE := console=none androidboot.hardware=pyramid no_console_suspend=1 androidboot.selinux=permissive
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01400000
 TARGET_KERNEL_CONFIG := pyramid_defconfig
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
 TARGET_KERNEL_SOURCE := kernel/htc/pyramid
 
 RECOVERY_FSTAB_VERSION := 2
