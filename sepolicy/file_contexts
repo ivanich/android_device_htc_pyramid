@@ -19,6 +19,15 @@
 
 /dev/ttyHSL2                                           u:object_r:cir_device:s0
 
+# Radio
+/dev/rmnet_mux_ctrl                                    u:object_r:radio_device:s0
+/dev/radio                                             u:object_r:radio_device:s0
+/dev/radio_feedback                                    u:object_r:radio_device:s0
+
+# Battery sysfs
+/sys/devices/platform/htc_battery/power_supply/battery(/.*)?              u:object_r:sysfs_battery_supply:s0
+/sys/devices/platform/htc_battery/power_supply/usb(/.*)?                  u:object_r:sysfs_usb_supply:s0
+
 # Modem
 /dev/block/mmcblk0p17                                  u:object_r:modem_efs_partition_device:s0
 /dev/block/mmcblk0p18                                  u:object_r:modem_efs_partition_device:s0
