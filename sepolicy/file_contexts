@@ -19,15 +19,6 @@
 
 /dev/ttyHSL2                                           u:object_r:cir_device:s0
 
-# Radio
-/dev/rmnet_mux_ctrl                                    u:object_r:radio_device:s0
-/dev/radio                                             u:object_r:radio_device:s0
-/dev/radio_feedback                                    u:object_r:radio_device:s0
-
-# Battery sysfs
-/sys/devices/platform/htc_battery/power_supply/battery(/.*)?              u:object_r:sysfs_battery_supply:s0
-/sys/devices/platform/htc_battery/power_supply/usb(/.*)?                  u:object_r:sysfs_usb_supply:s0
-
 # thermal
 /system/bin/thermald                                   u:object_r:thermal-engine_exec:s0
 
