@@ -28,6 +28,9 @@
 /sys/devices/platform/htc_battery/power_supply/battery(/.*)?              u:object_r:sysfs_battery_supply:s0
 /sys/devices/platform/htc_battery/power_supply/usb(/.*)?                  u:object_r:sysfs_usb_supply:s0
 
+# thermal
+/system/bin/thermald                                   u:object_r:thermal-engine_exec:s0
+
 # Modem
 /dev/block/mmcblk0p17                                  u:object_r:modem_efs_partition_device:s0
 /dev/block/mmcblk0p18                                  u:object_r:modem_efs_partition_device:s0
