@@ -198,6 +198,7 @@ service hdmid /system/bin/hdmid
 service htcbatt /system/bin/htcbatt
     class main
     user root
+    seclabel u:r:healthd:s0
 
 
 service netmgrd /system/bin/netmgrd
