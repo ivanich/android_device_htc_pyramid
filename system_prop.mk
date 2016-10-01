@@ -55,3 +55,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # By default, primary storage is physical
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vold.primary_physical=1
+
+# Storage
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sys.sdcardfs=true
+
