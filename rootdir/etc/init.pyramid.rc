@@ -176,10 +176,6 @@ on boot
     write /sys/keyboard/vol_wakeup 1
 
 # Services start here
-service sensorservice /system/bin/sensorservice
-    class late_start
-    user root
-    group root
 
 service qcamerasvr /system/bin/mm-qcamera-daemon
     class late_start
