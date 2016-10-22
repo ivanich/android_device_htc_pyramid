@@ -58,7 +58,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Storage
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sys.sdcardfs=true
+    ro.sys.sdcardfs=false
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
