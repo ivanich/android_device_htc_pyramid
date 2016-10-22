@@ -185,6 +185,7 @@ service qcamerasvr /system/bin/mm-qcamera-daemon
 service adc_fixup /system/bin/cat /sys/devices/platform/msm_adc/batt_id
     class main
     oneshot
+    seclabel u:r:healthd:s0
 
 service htcbatt /system/bin/htcbatt
     class main
