@@ -14,7 +14,7 @@ $(call inherit-product, device/htc/pyramid/device_pyramid.mk)
 
 # Device naming
 PRODUCT_DEVICE := pyramid
-PRODUCT_NAME := cm_pyramid
+PRODUCT_NAME := lineage_pyramid
 PRODUCT_BRAND := htc
 PRODUCT_MODEL := Sensation
 PRODUCT_MANUFACTURER := HTC
