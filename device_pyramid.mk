@@ -160,6 +160,9 @@ PRODUCT_AAPT_PREF_CONFIG := hdpi
 PRODUCT_PACKAGES += \
     Snap
 
+# Charger
+WITH_CM_CHARGER := false
+
 # Camera wrapper
 PRODUCT_PACKAGES += \
     camera.msm8660
