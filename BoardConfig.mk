@@ -129,6 +129,7 @@ BOARD_BLUETOOTH_USES_HCIATTACH_PROPERTY := false
 #BOARD_HARDWARE_CLASS := device/htc/pyramid/cmhw
 
 # RIL
+TARGET_RIL_VARIANT := caf
 BOARD_RIL_CLASS := ../../../device/htc/pyramid/ril
 
 # Misc
