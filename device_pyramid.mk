@@ -156,10 +156,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
-# Camera
-PRODUCT_PACKAGES += \
-    Snap
-
 # Charger
 WITH_CM_CHARGER := false
 
