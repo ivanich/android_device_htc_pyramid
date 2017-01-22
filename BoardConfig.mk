@@ -162,6 +162,7 @@ TW_THEME := portrait_mdpi
 TW_INCLUDE_CRYPTO := true
 TW_NO_SCREEN_BLANK := true
 TW_INCLUDE_DUMLOCK := true
+TW_USE_TOYBOX := false
 HAVE_SELINUX := true
 TW_NO_CPU_TEMP := true
 TW_NEW_ION_HEAP := true
