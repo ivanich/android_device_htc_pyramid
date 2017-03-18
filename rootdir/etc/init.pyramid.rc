@@ -206,7 +206,7 @@ service rmt_storage /system/bin/rmt_storage /dev/block/mmcblk0p26 /dev/block/mmc
     user root
 
 service thermald /system/bin/thermald
-    class core
+    class main
     user root
     group root
     disabled
@@ -233,15 +233,6 @@ service p2p_supplicant /system/bin/wpa_supplicant \
     disabled
     group system wakelock
     oneshot
-
-on property:init.svc.bootanim=stopped
-    start qcom-post-boot
-
-on property:persist.thermal.monitor=true
-    start thermald
-
-on property:ro.hdmi.enable=true
-    start hdmid
 
 on property:service.adb.root=1
     write /sys/class/android_usb/android0/enable 0
