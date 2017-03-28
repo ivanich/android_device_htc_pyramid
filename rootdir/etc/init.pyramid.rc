@@ -2,10 +2,6 @@ import init.pyramid.usb.rc
 import init.qcom.power.rc
 
 on early-init
-
-   # ZRAM
-   write /sys/block/zram0/comp_algorithm lz4
-   write /sys/block/zram0/max_comp_streams 2
    mount debugfs debugfs /sys/kernel/debug
 
 on init
@@ -27,7 +23,6 @@ on fs
     mkdir /firmware_q6 0771 system system
     # mount all mmc partitions
     mount_all /fstab.pyramid
-    swapon_all /fstab.pyramid
 
     mkdir /data/tombstones 0771 system system
     symlink /data/tombstones /tombstones
