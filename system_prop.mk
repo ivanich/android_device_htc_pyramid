@@ -23,9 +23,24 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # tweaks
 PRODUCT_PROPERTY_OVERRIDES += \
      dalvik.vm.dexopt-data-only=1 \
-     dalvik.vm.dexopt-flags=m=y \
-     windowsmgr.max_events_per_sec=300 \
      pm.sleep_mode=1
+
+# Low-RAM optimizations
+ADDITIONAL_BUILD_PROPERTIES += \
+    ro.config.low_ram=true \
+    persist.sys.force_highendgfx=true \
+    dalvik.vm.jit.codecachesize=0 \
+    config.disable_atlas=true \
+    ro.config.max_starting_bg=8 \
+    ro.sys.fw.bg_apps_limit=16 \
+    ro.sys.fw.use_trim_settings=true \
+    ro.sys.fw.empty_app_percent=50 \
+    ro.sys.fw.trim_empty_percent=100 \
+    ro.sys.fw.trim_cache_percent=100 \
+    ro.sys.fw.trim_enable_memory=874512384 \
+    ro.sys.fw.bservice_enable=true \
+    ro.sys.fw.bservice_limit=5 \
+    ro.sys.fw.bservice_age=5000
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
