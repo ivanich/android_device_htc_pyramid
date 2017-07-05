@@ -9,7 +9,6 @@
 #define REMOVE_EAGER_THREADS FALSE
 #define LEGACY_BRCM_HCI TRUE
 #define BTA_HOST_INTERLEAVE_SEARCH  TRUE
-#define SC_MODE_INCLUDED FALSE
 /* Defined if the kernel does not have support for CLOCK_BOOTTIME_ALARM */
 #define KERNEL_MISSING_CLOCK_BOOTTIME_ALARM TRUE
 #endif
