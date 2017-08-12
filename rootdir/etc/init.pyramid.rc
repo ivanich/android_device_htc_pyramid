@@ -194,7 +194,7 @@ service netmgrd /system/bin/netmgrd
 service qmuxd /system/bin/qmuxd
     class core
     user radio
-    group radio audio bluetooth gps
+    group radio qcom_diag audio bluetooth gps
 
 service rmt_storage /system/bin/rmt_storage /dev/block/mmcblk0p26 /dev/block/mmcblk0p27 /dev/block/mmcblk0p18 /dev/block/mmcblk0p17
     class core
